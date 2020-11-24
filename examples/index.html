@@ -1,0 +1,329 @@
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+  <head>
+  <title>
+    
+    Marian :: Examples
+    
+  </title>
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fast Neural Machine Translation in C++">
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Plugins CSS -->
+  <link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/assets/css/pygments/github.css">
+  <link rel="stylesheet" href="/assets/plugins/lightbox/lightbox.css">
+
+  <!-- Theme CSS -->
+  <link id="theme-style" rel="stylesheet" href="/assets/css/styles.css">
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <link rel="stylesheet" href="/assets/plugins/github-fork-ribbon-css/gh-fork-ribbon.css" />
+  <!--[if lt IE 9]>
+    <link rel="stylesheet" href="/assets/plugins/github-fork-ribbon-css/gh-fork-ribbon.ie.css" />
+  <![endif]-->
+
+  
+
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109819276-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-109819276-1');
+</script>
+
+  
+
+</head>
+
+
+  <body class="body-blue">
+    <a class="github-fork-ribbon" href="https://github.com/marian-nmt/marian" title="Fork me on GitHub">Fork me on GitHub</a>
+
+    <div class="page-wrapper">
+
+    <header id="header" class="header">
+  <div class="container">
+    <div class="branding">
+      <h1 class="logo">
+        <a href="/">
+          <span aria-hidden="true" class="icon_documents_alt icon"></span>
+          <span class="text-highlight">Marian</span><span class="text-bold">NMT</span>
+        </a>
+      </h1>
+      <p class="description">Fast Neural Machine Translation in C++</p>
+    </div><!--//branding-->
+
+    <ol class="breadcrumb">
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/quickstart/">Quick start</a>
+ </li>
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/features/">Features &amp; Benchmarks</a>
+ </li>
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/docs/">Documentation</a>
+ </li>
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/examples/">Examples</a>
+ </li>
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/faq">FAQ</a>
+ </li>
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/publications/">Publications</a>
+ </li>
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/blog">Blog</a>
+ </li>
+ 
+
+</ol>
+
+
+  </div><!--//container-->
+</header><!--//header-->
+
+
+    <div class="doc-wrapper">
+      <div class="container">
+
+        <div id="doc-header" class="doc-header text-center">
+          <h1 class="doc-title">
+            
+            <i class="icon fa fa-cogs }}"></i>
+            
+            Examples
+          </h1>
+          <div class="meta">
+            <i class="fa fa-clock-o"></i>
+            Last updated: 24 November 2020
+          </div>
+        </div><!--//doc-header-->
+
+        <div class="doc-body">
+          <div class="doc-content">
+            <div class="content-inner">
+
+              <h2 id="examples">Examples</h2>
+
+<ul>
+  <li>
+    <p><strong><a class="github-link" href="https://github.com/marian-nmt/marian-examples/tree/master/training-basics" target="_blank">Basic example for training</a></strong>:
+The scripts for training a <a href="http://www.aclweb.org/anthology/W16-2323">Edinburgh’s WMT16
+system</a> adapted from the
+Romanian-English sample from <a href="https://github.com/rsennrich/wmt16-scripts">https://github.com/rsennrich/wmt16-scripts</a>.
+The resulting system should be competitive or even slightly better than
+reported in that paper.</p>
+  </li>
+  <li>
+    <p><strong><a class="github-link" href="https://github.com/marian-nmt/marian-examples/tree/master/transformer" target="_blank">Training a transformer model</a></strong>:
+An example for training a Google-style transformer model introduced in
+<a href="https://arxiv.org/abs/1706.03762"><em>Attention is all you need</em>, Vaswani et al.,
+2017</a>.</p>
+  </li>
+  <li>
+    <p><strong><a class="github-link" href="https://github.com/marian-nmt/marian-examples/tree/master/training-basics-sentencepiece" target="_blank">Training on raw texts with built-in SentencePiece</a></strong>:
+The example shows how to use Taku Kudo’s
+<a href="https://github.com/google/sentencepiece">SentencePiece</a> and Matt Post’s
+<a href="https://github.com/mjpost/sacreBLEU">SacreBLEU</a> to greatly simplify the
+training and evaluation process by providing ways to have reversible hidden
+preprocessing and repeatable evaluation.</p>
+  </li>
+  <li>
+    <p><strong><a class="github-link" href="https://github.com/marian-nmt/marian-examples/tree/master/wmt2017-uedin" target="_blank">Reconstructing Edinburgh’s WMT17 English-German system</a></strong>:
+The scripts show how to train a complete WMT-grade system based on
+<a href="http://www.aclweb.org/anthology/W17-4739">Edinburgh’s WMT submission
+description</a> for en-de.</p>
+  </li>
+  <li>
+    <p><strong><a class="github-link" href="https://github.com/marian-nmt/marian-examples/tree/master/wmt2017-transformer" target="_blank">Reconstructing top WMT17 system with Marian’s Transformer model</a></strong>:
+The scripts show how to train a complete better than (!) WMT-grade system
+based on <a href="https://arxiv.org/abs/1706.03762">Google’s Transformer model</a> and
+<a href="http://www.aclweb.org/anthology/W17-4739">Edinburgh’s WMT submission
+description</a> for en-de.  This
+example is a combination of reproducing Edinburgh’s WMT2017 system for en-de
+with Marian and the example for Transformer training.</p>
+  </li>
+  <li>
+    <p><strong><a class="github-link" href="https://github.com/marian-nmt/marian-examples/tree/master/translating-amun" target="_blank">Translating with Amun</a></strong>:
+The scripts demonstrate how to translate with Amun using Edinburgh’s
+German-English WMT2016 single model and ensemble.</p>
+  </li>
+</ul>
+
+<h2 id="tutorials">Tutorials</h2>
+
+<h3 id="mt-marathon-2019-efficiency">MT Marathon 2019 Efficiency</h3>
+
+<p><strong><a href="/examples/mtm2019">The Machine Translation Marathon 2019 Tutorial</a></strong> shows
+how to do efficient neural machine translation using the Marian toolkit by
+optimizing the speed, accuracy and use of resources for training and decoding
+of NMT models.</p>
+
+<h3 id="mt-marathon-2018-intro">MT Marathon 2018 Intro</h3>
+
+<p><strong><a href="/examples/mtm2018-labs">The Machine Translation Marathon 2018 Labs</a></strong> is a
+Marian tutorial that covers topics like downloading and compiling Marian,
+translating with a pretrained model, preparing training data and training a
+basic NMT model, and contains list of exercises introducing different features
+and model architectures available in Marian.</p>
+
+<h3 id="mt-marathon-2017-tutorial">MT Marathon 2017 Tutorial</h3>
+
+<ul>
+  <li><strong><a href="/examples/mtm2017/intro/">Part 1: First steps with Marian</a></strong>: Downloading
+and compiling Marian. Translation with a pretrained model.  Preparing a
+parallel corpus for training. Training a shallow encoder-decoder model with
+attention.</li>
+  <li><strong><a href="/examples/mtm2017/complex/">Part 2: Complex models</a></strong>: Here we take a look
+at more complex models, for instance deeper models or multi-encoder models.</li>
+  <li><strong><a href="/examples/mtm2017/code/">Part 3: Coding tutorial</a></strong>: Code a custom model,
+here a simple Sutskever-style model without attention.</li>
+</ul>
+
+<h2 id="use-cases">Use cases</h2>
+
+<ul>
+  <li><strong><a href="/examples/postedit/">Winning system of the WMT 2016 APE shared task</a></strong>:
+This page provides data and model files for our shared task winning APE
+system described in <a href="http://www.aclweb.org/anthology/W16-2378">Log-linear Combinations of Monolingual and Bilingual
+Neural Machine Translation Models for Automatic
+Post-Editing</a>.</li>
+  <li><strong><a href="/examples/exploration/">An Exploration of Neural Sequence-to-Sequence Architectures for Automatic
+Post-Editing</a></strong>: This page provides data and model
+files and training instructions for our models described in <a href="https://arxiv.org/abs/1706.04138">Junczys-Dowmunt
+&amp; Grundkiewicz (2017). An Exploration of Neural Sequence-to-Sequence
+Architectures for Automatic Post-Editing</a>.</li>
+</ul>
+
+
+            </div><!--//content-inner-->
+          </div><!--//doc-content-->
+
+          <div class="doc-sidebar hidden-xs">
+            <nav id="doc-nav"></nav>
+          </div><!--//doc-sidebar-->
+
+        </div><!--//doc-body-->
+
+      </div><!--//container-->
+    </div><!--//doc-wrapper-->
+
+    </div><!--//page-wrapper-->
+
+    <footer id="footer" class="footer text-center">
+  <div class="container">
+    <p>
+     Marian - an efficient Neural Machine Translation framework written in pure C++.</br>
+      Mainly developed at Microsoft Translator and at the University of Edinburgh.
+    </p>
+    <p><a href="https://github.com/marian-nmt/marian#marian">Marian</a> is licensed under the <a href="https://github.com/marian-nmt/marian/blob/master/LICENSE.md">MIT license</a>.</p>
+    <p><small class="copyright footnote">Based on the theme PrettyDocs designed by <a href="http://themes.3rdwavemedia.com/" targe="_blank">Xiaoying Riley</a> with modifications.</small></p>
+  </div><!--//container-->
+</footer><!--//footer-->
+
+    <!-- Main Javascript -->
+<script type="text/javascript"> localStorage.clear();</script>
+
+<script type="text/javascript" src="/assets/plugins/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/jquery-match-height/jquery.matchHeight-min.js"></script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/main.js"></script>
+<script type="text/javascript" src="/assets/js/toc.js"></script>
+
+
+  </body>
+</html>

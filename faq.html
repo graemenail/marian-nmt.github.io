@@ -1,0 +1,579 @@
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+  <head>
+  <title>
+    
+    Marian :: FAQ
+    
+  </title>
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fast Neural Machine Translation in C++">
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Plugins CSS -->
+  <link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/assets/css/pygments/github.css">
+  <link rel="stylesheet" href="/assets/plugins/lightbox/lightbox.css">
+
+  <!-- Theme CSS -->
+  <link id="theme-style" rel="stylesheet" href="/assets/css/styles.css">
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <link rel="stylesheet" href="/assets/plugins/github-fork-ribbon-css/gh-fork-ribbon.css" />
+  <!--[if lt IE 9]>
+    <link rel="stylesheet" href="/assets/plugins/github-fork-ribbon-css/gh-fork-ribbon.ie.css" />
+  <![endif]-->
+
+  
+  <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  
+
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109819276-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-109819276-1');
+</script>
+
+  
+
+</head>
+
+
+  <body class="body-blue">
+    <a class="github-fork-ribbon" href="https://github.com/marian-nmt/marian" title="Fork me on GitHub">Fork me on GitHub</a>
+
+    <div class="page-wrapper">
+
+    <header id="header" class="header">
+  <div class="container">
+    <div class="branding">
+      <h1 class="logo">
+        <a href="/">
+          <span aria-hidden="true" class="icon_documents_alt icon"></span>
+          <span class="text-highlight">Marian</span><span class="text-bold">NMT</span>
+        </a>
+      </h1>
+      <p class="description">Fast Neural Machine Translation in C++</p>
+    </div><!--//branding-->
+
+    <ol class="breadcrumb">
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/quickstart/">Quick start</a>
+ </li>
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/features/">Features &amp; Benchmarks</a>
+ </li>
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/docs/">Documentation</a>
+ </li>
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/examples/">Examples</a>
+ </li>
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/faq">FAQ</a>
+ </li>
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/publications/">Publications</a>
+ </li>
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/blog">Blog</a>
+ </li>
+ 
+
+</ol>
+
+
+  </div><!--//container-->
+</header><!--//header-->
+
+
+    <div class="doc-wrapper">
+      <div class="container">
+
+        <div id="doc-header" class="doc-header text-center">
+          <h1 class="doc-title">
+            
+            <i class="icon fa fa-life-ring }}"></i>
+            
+            FAQ
+          </h1>
+          <div class="meta">
+            <i class="fa fa-clock-o"></i>
+            Last updated: 24 November 2020
+          </div>
+        </div><!--//doc-header-->
+
+        <div class="doc-body">
+          <div class="doc-content">
+            <div class="content-inner">
+
+              <h2 id="table-of-contents">Table of contents</h2>
+
+<div id="faq-nav"></div>
+
+<h2 id="answers">Answers</h2>
+
+<!-- ///////////////////////////////////////////////////// -->
+<h3 id="general">General</h3>
+
+<h4 class="question" id="what-is-marian">What is Marian?</h4>
+<p>Marian is a pure C++ neural machine translation toolkit. It supports training
+and translation of a number of popular NMT models. Underneath the NMT API
+lurkes a quite mature deep learning engine with no external dependencies other
+than boost and Nvidia’s CUDA (with optional CUDNN for convolutional networks).</p>
+
+<p>Due to its self-contained nature, it is quite easy to optimize Marian for NMT
+specific tasks which results in one of the more efficient NMT toolkits
+available.  Take a look at the <a href="/features/#benchmarks">benchmarks</a>.</p>
+
+<h4 class="question" id="where-can-i-get-marian">Where can I get Marian?</h4>
+<p>Follow the steps in <a href="/quickstart">quick start</a> to get install Marian from <a href="https://github.com/marian-nmt/marian">our
+github repository</a>.</p>
+
+<h4 class="question" id="where-can-i-get-support">Where can I get support?</h4>
+<p>There is a Google discussion group available at
+<a href="https://groups.google.com/forum/#!forum/marian-nmt">https://groups.google.com/forum/#!forum/marian-nmt</a>.
+You can send questions to the group by e-mail: <code class="highlighter-rouge">marian-nmt@googlegroups.com</code>.</p>
+
+<h4 class="question" id="where-can-i-report-bugs">Where can I report bugs?</h4>
+<p>I you believe you have encoutered a bug, please file an issue at
+<a href="https://github.com/marian-nmt/marian/issues">https://github.com/marian-nmt/marian/issues</a>.</p>
+
+<h4 class="question" id="how-should-i-cite-marian">How should I cite Marian?</h4>
+<p>Please cite the following <a href="https://arxiv.org/abs/1804.00344">Marian Demo paper</a>
+if you use Marian (formerly AmuNMT) in your research:</p>
+<div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@InProceedings<span class="p">{</span>mariannmt,
+  title     = <span class="p">{</span>Marian: Fast Neural Machine Translation in <span class="p">{</span>C++<span class="p">}}</span>,
+  author    = <span class="p">{</span>Junczys-Dowmunt, Marcin and Grundkiewicz, Roman and
+               Dwojak, Tomasz and Hoang, Hieu and Heafield, Kenneth and
+               Neckermann, Tom and Seide, Frank and Germann, Ulrich and
+               Fikri Aji, Alham and Bogoychev, Nikolay and
+               Martins, Andr<span class="k">\'</span><span class="p">{</span>e<span class="p">}</span> F. T. and Birch, Alexandra<span class="p">}</span>,
+  booktitle = <span class="p">{</span>Proceedings of ACL 2018, System Demonstrations<span class="p">}</span>,
+  year      = <span class="p">{</span>2018<span class="p">}</span>,
+  address   = <span class="p">{</span>Melbourne, Australia<span class="p">}</span>,
+  url       = <span class="p">{</span>https://arxiv.org/abs/1804.00344<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>There’s also a bunch of publications that use Marian on our
+<a href="/publications">publications</a> page (let us know if you want us to add yours).</p>
+
+<h4 class="question" id="where-do-you-announce-updates">Where do you announce updates?</h4>
+<p>See
+<a href="https://github.com/marian-nmt/marian-dev/blob/master/CHANGELOG.md">changelog</a>
+for a curated list of changes or follow us directly on twitter <a href="https://twitter.com/marian_nmt?ref_src=twsrc%5Etfw">@marian_nmt</a>
+for highlights.</p>
+
+<h4 class="question" id="who-is-responsible-for-marian">Who is responsible for Marian?</h4>
+<p>See the list of <a href="https://github.com/marian-nmt/marian-dev/graphs/contributors"><strong>marian-dev</strong>
+contributors</a> and
+<a href="https://github.com/marian-nmt/marian/graphs/contributors"><strong>marian</strong>
+contributors</a>.
+As <a href="https://github.com/marian-nmt/marian-dev"><strong>marian-dev</strong></a> is our
+bleeding-edge development repository the main work on <strong>marian</strong> is happening
+there.
+The <a href="https://github.com/marian-nmt/marian"><strong>marian</strong></a> repository is then
+updated with new versions.</p>
+
+<p>Apart from that <a href="https://github.com/marian-nmt/marian"><strong>marian</strong></a> still
+contains code for <strong>amun</strong> our hand-written NMT decoder.  Contributions listed
+for that repository are mostly to <strong>amun</strong>.</p>
+
+<p>The list of contributors so far:</p>
+
+<ul>
+  <li>Marcin Junczys-Dowmunt, formerly Adam Mickiewicz University in Poznań and University of Edinburgh</li>
+  <li>Roman Grundkiewicz, University of Edinburgh, formerly Adam Mickiewicz University in Poznań</li>
+  <li>Hieu Hoang, University of Edinburgh</li>
+  <li>Tomasz Dwojak, Adam Mickiewicz University in Poznań, formerly University of Edinburgh</li>
+  <li>Ulrich German, University of Edinburgh</li>
+  <li>Alham Aji, University of Edinburgh</li>
+  <li>Nikolay Bogoychev, University of Edinburgh</li>
+  <li>Kenneth Heafield, University of Edinburgh</li>
+  <li>Alexandra Birch, University of Edinburgh</li>
+</ul>
+
+<h4 class="question" id="whats-up-with-the-name">What’s up with the name?</h4>
+<p>Marian has been named in honour of the Polish crypotologist <a href="https://en.wikipedia.org/wiki/Marian_Rejewski">Marian
+Rejewski</a> who reconstructed the
+German military Enigma cipher machine in 1932.</p>
+
+<p><a href="https://github.com/emjotde">Marcin</a> (the creator of the Marian toolkit) was
+born in the same Polish city as Marian Rejewski (Bydgoszcz), taught a bit of
+mathematics at Marian Rejewski’s secondary school in Bydgoszcz and finally
+ended up studying mathematics at Adam Mickiewicz University in Poznań, at
+Marian Rejewski’s old faculty.</p>
+
+<p>The name started out as a joke, but was made official later by public demand.</p>
+
+<p><br />
+<!-- ///////////////////////////////////////////////////// --></p>
+<h3 id="installation">Installation</h3>
+
+<h4 class="question" id="can-marian-be-run-on-windows">Can Marian be run on Windows?</h4>
+<p>Not yet. We plan to release a version that can be compiled and run on Windows
+soon.</p>
+
+<h4 class="question" id="can-i-compile-marian-without-cuda">Can I compile Marian without CUDA?</h4>
+<p>Yes. The CPU only version can be compiled by disabling the CUDA library with
+the CMake flag <code class="highlighter-rouge">-DCOMPILE_CUDA=off</code>. This requires Intel MKL, see
+<a href="/docs/#cpu-version">here</a> for more details.</p>
+
+<h4 class="question" id="why-do-i-get-an-error-__cudacc_ver__-is-no-longer-supported">Why do I get an error <code class="highlighter-rouge">__CUDACC_VER__ is no longer supported</code>?</h4>
+<p>This issue is Boost related as some Boost versions are not compatible with CUDA
+9.0+.  Updating Boost to 1.65.1+ should solve the compilation error.</p>
+
+<p><br />
+<!-- ///////////////////////////////////////////////////// --></p>
+<h3 id="training">Training</h3>
+
+<h4 class="question" id="how-do-i-enable-multi-gpu-training">How do I enable multi-GPU training?</h4>
+<p>You only need to specify the device ids of the GPUs you want to use for training
+(this also works with most other binaries) as <code class="highlighter-rouge">--devices 0 1 2 3</code> for training
+on four GPUs.</p>
+
+<p>See <a href="/docs/#multi-gpu-training">the documentation on multi-GPU training</a> for
+details.</p>
+
+<h4 class="question" id="does-marian-support-training-on-cpu">Does Marian support training on CPU?</h4>
+<p>Yes, but we do not recommend that as it is much slower than training on GPU.</p>
+
+<h4 class="question" id="what-are-recommended-training-settings">What are recommended training settings?</h4>
+<p>There is no simple answer as the choice of training settings and good
+hyperparameters should depend on the model architecture, language pair, and
+even training data.</p>
+
+<p>You may check our Deep-RNN and Transformer examples for English-German
+<a href="/examples/#examples">here</a>.</p>
+
+<h4 class="question" id="how-do-i-chose-mini-batch-size-max-length-and-workspace-memory">How do I chose mini-batch size, max-length and workspace memory?</h4>
+<p>Unfortunately this is quite involved and depends on the type of model, the available
+GPU memory, the number of GPUs, a number of other parameters like the chosen
+optimization algorithm, and the average or maximum sentence length in your
+training corpus (which you should know!). See <a href="/docs/#workspace-memory">this part of the
+documentation</a> for deeper discussion.</p>
+
+<h4 class="question" id="how-long-do-i-need-to-train-my-models">How long do I need to train my models?</h4>
+<p>This is a difficult question. What I usually do as a rule of thumb is to use a
+validation set as described <a href="/docs/#validation">here</a> and the default settings
+for <code class="highlighter-rouge">--early-stopping 10</code> as presented <a href="/docs/#early-stopping">here</a>.</p>
+
+<h4 class="question" id="what-types-of-regularization-are-available">What types of regularization are available?</h4>
+<p>Depending on the model type, Marian support multiple types of dropout as
+described <a href="/docs/#dropout">here</a>.</p>
+
+<p>Apart from dropout, we also provide <code class="highlighter-rouge">--label-smoothing</code> as suggested by
+<a href="https://arxiv.org/abs/1706.03762">Vaswani et al., 2017</a>.</p>
+
+<h4 class="question" id="do-you-have-a-google-style-transformer-model">Do you have a Google-style transformer model?</h4>
+<p>Yes. Please take a look at our <a href="https://github.com/marian-nmt/marian-examples/blob/master/transformer/README.md">transformer
+example</a>.
+Files and scripts in this folder show how to train a Google-style transformer
+model <a href="https://arxiv.org/abs/1706.03762">Vaswani et al, 2017</a> on WMT-17 (?)
+English-German data.</p>
+
+<h4 class="question" id="how-do-i-train-a-model-like-in-edinburghs-wmt2017-submission">How do I train a model like in Edinburgh’s WMT2017 submission?</h4>
+<p>Take a look at the examples we have prepared: <a class="github-link" href="https://github.com/marian-nmt/marian-examples/tree/master/wmt2017-uedin" target="_blank">Reconstructing Edinburgh’s WMT17 English-German system</a> and
+<a class="github-link" href="https://github.com/marian-nmt/marian-examples/tree/master/wmt2017-transformer" target="_blank">Reconstructing top English-German WMT17 system with Marian’s Transformer model</a>.</p>
+
+<h4 class="question" id="how-do-i-train-a-character-level-model">How do I train a character-level model?</h4>
+<p>Convolutional character-level NMT models are not yet supported. We are working
+on that.</p>
+
+<h4 class="question" id="how-do-i-train-a-language-model">How do I train a language model?</h4>
+<p>Set your monolingual training data file to <code class="highlighter-rouge">--train-sets</code> and use <code class="highlighter-rouge">--type
+lm</code> for training a RNN language model or <code class="highlighter-rouge">--type lm-transformer</code> for training a
+Transformer-based language model.</p>
+
+<h4 class="question" id="how-do-i-train-a-multi-source-model">How do I train a multi-source model?</h4>
+<p>Provide two files with source sentences followed by the file with target
+sentence to <code class="highlighter-rouge">--train-sets</code>, for instance <code class="highlighter-rouge">--train-set file.src1 file.src2
+file.trg</code> and use <code class="highlighter-rouge">--type multi-s2s</code> or <code class="highlighter-rouge">--type multi-transformer</code> to train a
+multi-source RNN-based model or multi-source Transformer model respectively.</p>
+
+<p>There are also <code class="highlighter-rouge">shared-multi-s2s</code> and <code class="highlighter-rouge">shared-multi-transformer</code> model types,
+which make encoders sharing their parameters.</p>
+
+<h4 class="question" id="what-are-the-details-of-your-multi-source-model-architectures">What are the details of your multi-source model architectures?</h4>
+<p>The multi-source model architecture in Marian is described in <a href="https://arxiv.org/abs/1706.04138">this
+paper</a>. In particular, Section 4.3.</p>
+
+<h4 class="question" id="can-i-train-a-model-with-custom-pretrained-embeddings">Can I train a model with custom pretrained embeddings?</h4>
+<p>Yes. Please check the <code class="highlighter-rouge">--embedding-vectors</code> option.</p>
+
+<h4 class="question" id="what-does-the---best-deep-option-mean">What does the <code class="highlighter-rouge">--best-deep</code> option mean?</h4>
+<p>It is a shortcut for using <a href="https://arxiv.org/abs/1707.07631">the Edinburgh deep RNN
+configuration</a> being equivalent to:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--enc-type alternating --enc-cell-depth 2 --enc-depth 4 \
+--dec-cell-base-depth 4 --dec-cell-high-depth 2 --dec-depth 4 \
+--layer-normalization --tied-embeddings --skip
+</code></pre></div></div>
+
+<h4 class="question" id="does-marian-support-multi-node-training">Does Marian support multi-node training?</h4>
+<p>Yes, but this is still an experimental feature. For details, see the documentation
+<a href="/docs/#multi-node-training">here</a>.</p>
+
+<h4 class="question" id="why-there-are-so-many-files-created-while-training">Why there are so many files created while training?</h4>
+<p>Marian by default keeps the iteration files that may take up quite a bit of space.</p>
+
+<p>When validation is enabled with any metric, you can use the following settings
+to keep only one model per validation metric that is updated whenever the metric improves:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--valid-metrics perplexity translation
+--valid-set data/valid.src data/valid.trg
+--overwrite --keep-best
+</code></pre></div></div>
+
+<p><br />
+<!-- ///////////////////////////////////////////////////// --></p>
+<h3 id="validation">Validation</h3>
+
+<h4 class="question" id="how-do-i-use-a-validation-set">How do I use a validation set?</h4>
+<p>Just provide <code class="highlighter-rouge">--valid valid.src valid.trg</code>. Be default this provide sentence-wise
+normalized cross-entropy scores for the validation set every 10,000 iterations.
+You can change the validation frequency to, say 5000, with <code class="highlighter-rouge">--valid-freq 5000</code> and
+the display frequency to 500 with <code class="highlighter-rouge">--disp-freq 500</code>.
+See <a href="/docs/#validation">here</a> for more information.</p>
+
+<p><strong>Attention:</strong> the validation set needs to have been preprocessed in exactly the same
+manner as your training data.</p>
+
+<h4 class="question" id="what-types-of-validation-scores-are-available">What types of validation scores are available?</h4>
+<p>By default we report sentence-wise normalized cross-entropy, but you can
+specify different and more than one metrics.</p>
+
+<p>For example <code class="highlighter-rouge">--valid-metrics perplexity ce-mean-words translation</code> will
+report word-wise normalized perplexity, word-wise normalized cross-entropy and
+will run in-process translation of the validation set to be scored with an
+external validation script.</p>
+
+<h4 class="question" id="how-to-display-bleu-meteor-or-ter-scores-for-a-validation-set">How to display BLEU, METEOR or TER scores for a validation set?</h4>
+<p>Currently this is possible only by using an external validation script.
+Such a script takes a file with the translation of the valiadion set as an
+intput and should run an external tool and return the score.
+See <a href="/docs/#validation">here</a> for more information.</p>
+
+<p><br />
+<!-- ///////////////////////////////////////////////////// --></p>
+<h3 id="translation">Translation</h3>
+
+<h4 class="question" id="are-there-recommended-settings-for-translation">Are there recommended settings for translation?</h4>
+<p>We found that using length normalization with a penalty term of 0.6 and a beam
+size of 6 is usually best:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./marian-decoder -m model.npz -v vocab.src.yml vocab.trg.yml -b 6 --normalize=0.6
+</code></pre></div></div>
+
+<p>Look at <a href="/docs/#translation">the translation documenation</a> for more advices.</p>
+
+<h4 class="question" id="does-marian-support-cpu-translation">Does Marian support CPU translation?</h4>
+<p>Yes, both <code class="highlighter-rouge">marian-decoder</code> and <code class="highlighter-rouge">amun</code> allows for decoding on CPU. Marian uses
+Intel MKL for that, see more details <a href="/docs/#cpu-version">here</a>.</p>
+
+<h4 class="question" id="does-marian-support-batched-translation">Does Marian support batched translation?</h4>
+<p>Yes. This a feature introduced in Marian v1.1.0. Batched translation generates
+translation for whole mini-batches and significantly increases translation
+speed (roughly by a factor of 10 or more). See <a href="/docs/#batched-translation">this part of the
+documentation</a> for details.</p>
+
+<h4 class="question" id="can-marian-do-model-ensembling">Can Marian do model ensembling?</h4>
+<p>Yes, and you can even ensemble models of different types, for instance an
+Edinburgh-style deep RNN model and a Google Transformer model, or you can a
+language model to the mix. See <a href="/docs/#model-ensembling">here</a> for details.</p>
+
+<h4 class="question" id="are-there-options-to-deal-with-placeholders-or-xml-tags">Are there options to deal with placeholders or XML-tags?</h4>
+<p>Not yet. This is a difficult issue for neural machine translation.</p>
+
+<h4 class="question" id="can-i-access-the-attention-weights">Can I access the attention weights?</h4>
+<p>Yes and no. <code class="highlighter-rouge">marian-decoder</code> can produce hard alignments from RNN-based NMT
+models using <code class="highlighter-rouge">--alignment</code>.  <code class="highlighter-rouge">amun</code> has even more options for this, but is
+restricted to a specific model type.</p>
+
+<p>It is in principle not clear how to actually implement that for the transformer
+as it has a lot of target-to-source attention matrices.</p>
+
+<h4 class="question" id="can-i-generate-n-best-lists">Can I generate n-best lists?</h4>
+<p>Yes. Just use <code class="highlighter-rouge">--n-best</code> and the set <code class="highlighter-rouge">--beam-size 6</code> for an n-best list size of
+6.</p>
+
+<h4 class="question" id="how-can-i-make-the-decoding-faster">How can I make the decoding faster?</h4>
+<p>Marian is already one of the fastest NMT toolkits available. You may further
+speed up the decoding using different model optimization techniques taking an
+inspiration from <a href="https://arxiv.org/abs/1805.12096">our submission</a> to <a href="https://sites.google.com/site/wnmt18/shared-task">the
+WNMT17 shared task</a>.</p>
+
+<p><br />
+<!-- ///////////////////////////////////////////////////// --></p>
+<h3 id="scoring">Scoring</h3>
+
+<h4 class="question" id="how-can-i-calculate-the-perplexity-of-a-test-set">How can I calculate the perplexity of a test set?</h4>
+<p>You may adapt the following command for your model file, vocabularies and a
+test set:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./marian-scorer -m model.npz -v vocab.src.yml vocab.trg.yml -t test.src test.trg --summary=perplexity
+</code></pre></div></div>
+
+<p>If your model had a different number of inputs (only one for a language model
+or three for a dual-source model) you need to provide all the correct number of
+vocabularies and test set files in corresponding order.</p>
+
+<p>Omitting the <code class="highlighter-rouge">--summary</code> option will print sentence-wise log probabilities.</p>
+
+<h4 class="question" id="are-moses-style-n-best-lists-supported">Are Moses-style n-best lists supported?</h4>
+<p>Yes. Please use <code class="highlighter-rouge">--n-best</code> and set your n-best list file as a second argument
+to the <code class="highlighter-rouge">--train-sets</code> option, the first argument should be a file with source
+sentences.</p>
+
+<p><br />
+<!-- ///////////////////////////////////////////////////// --></p>
+<h3 id="code">Code</h3>
+
+<h4 class="question" id="i-would-like-to-contribute-to-marian-where-i-should-start">I would like to contribute to Marian. Where I should start?</h4>
+<p>Please take a look into
+<a href="https://github.com/marian-nmt/marian-dev/blob/master/CONTRIBUTING.md">CONTRIBUTING</a>.</p>
+
+<p>I usually recommend looking at the Iris and MNIST examples first and
+familiarise yourself with the computational framework in Marian, and then
+playing with more advanced models.</p>
+
+<p>Any questions related to the code can be asked on <a href="https://groups.google.com/forum/#!forum/marian-nmt">our discussion
+group</a> or using <a href="https://github.com/marian-nmt/marian-dev/issues">Github
+issues</a>.</p>
+
+<h4 class="question" id="where-can-i-find-a-documentation-for-developers">Where can I find a documentation for developers?</h4>
+<p>We do not have a good code documentation yet. Many classes are documented using
+Doxygen and the generated documentation is available
+(<a href="/docs/marian/classes.html">here</a>).</p>
+
+
+            </div><!--//content-inner-->
+          </div><!--//doc-content-->
+
+          <div class="doc-sidebar hidden-xs">
+            <nav id="doc-nav"></nav>
+          </div><!--//doc-sidebar-->
+
+        </div><!--//doc-body-->
+
+      </div><!--//container-->
+    </div><!--//doc-wrapper-->
+
+    </div><!--//page-wrapper-->
+
+    <footer id="footer" class="footer text-center">
+  <div class="container">
+    <p>
+     Marian - an efficient Neural Machine Translation framework written in pure C++.</br>
+      Mainly developed at Microsoft Translator and at the University of Edinburgh.
+    </p>
+    <p><a href="https://github.com/marian-nmt/marian#marian">Marian</a> is licensed under the <a href="https://github.com/marian-nmt/marian/blob/master/LICENSE.md">MIT license</a>.</p>
+    <p><small class="copyright footnote">Based on the theme PrettyDocs designed by <a href="http://themes.3rdwavemedia.com/" targe="_blank">Xiaoying Riley</a> with modifications.</small></p>
+  </div><!--//container-->
+</footer><!--//footer-->
+
+    <!-- Main Javascript -->
+<script type="text/javascript"> localStorage.clear();</script>
+
+<script type="text/javascript" src="/assets/plugins/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/jquery-match-height/jquery.matchHeight-min.js"></script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/main.js"></script>
+<script type="text/javascript" src="/assets/js/toc.js"></script>
+
+
+  </body>
+</html>

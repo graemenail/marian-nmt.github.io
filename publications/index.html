@@ -1,0 +1,508 @@
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+  <head>
+  <title>
+    
+    Marian :: Publications
+    
+  </title>
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fast Neural Machine Translation in C++">
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Plugins CSS -->
+  <link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/assets/css/pygments/github.css">
+  <link rel="stylesheet" href="/assets/plugins/lightbox/lightbox.css">
+
+  <!-- Theme CSS -->
+  <link id="theme-style" rel="stylesheet" href="/assets/css/styles.css">
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <link rel="stylesheet" href="/assets/plugins/github-fork-ribbon-css/gh-fork-ribbon.css" />
+  <!--[if lt IE 9]>
+    <link rel="stylesheet" href="/assets/plugins/github-fork-ribbon-css/gh-fork-ribbon.ie.css" />
+  <![endif]-->
+
+  
+
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109819276-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-109819276-1');
+</script>
+
+  
+
+</head>
+
+
+  <body class="body-blue">
+    <a class="github-fork-ribbon" href="https://github.com/marian-nmt/marian" title="Fork me on GitHub">Fork me on GitHub</a>
+
+    <div class="page-wrapper">
+
+    <header id="header" class="header">
+  <div class="container">
+    <div class="branding">
+      <h1 class="logo">
+        <a href="/">
+          <span aria-hidden="true" class="icon_documents_alt icon"></span>
+          <span class="text-highlight">Marian</span><span class="text-bold">NMT</span>
+        </a>
+      </h1>
+      <p class="description">Fast Neural Machine Translation in C++</p>
+    </div><!--//branding-->
+
+    <ol class="breadcrumb">
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/quickstart/">Quick start</a>
+ </li>
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/features/">Features &amp; Benchmarks</a>
+ </li>
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/docs/">Documentation</a>
+ </li>
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/examples/">Examples</a>
+ </li>
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/faq">FAQ</a>
+ </li>
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/publications/">Publications</a>
+ </li>
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/blog">Blog</a>
+ </li>
+ 
+
+</ol>
+
+
+  </div><!--//container-->
+</header><!--//header-->
+
+
+    <div class="doc-wrapper">
+      <div class="container">
+
+        <div id="doc-header" class="doc-header text-center">
+          <h1 class="doc-title">
+            
+            <i class="icon fa fa-graduation-cap }}"></i>
+            
+            Publications
+          </h1>
+          <div class="meta">
+            <i class="fa fa-clock-o"></i>
+            Last updated: 24 November 2020
+          </div>
+        </div><!--//doc-header-->
+
+        <div class="doc-body">
+          <div class="doc-content">
+            <div class="content-inner">
+
+              <h2 id="citation">Citation</h2>
+
+<p>Please cite the following <a href="http://aclweb.org/anthology/P18-4020">Marian Demo paper</a>
+if you use Marian (formerly AmuNMT) in your research:</p>
+
+<div class="language-tex highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@InProceedings<span class="p">{</span>mariannmt,
+  title     = <span class="p">{</span>Marian: Fast Neural Machine Translation in <span class="p">{</span>C++<span class="p">}}</span>,
+  author    = <span class="p">{</span>Junczys-Dowmunt, Marcin and Grundkiewicz, Roman and
+               Dwojak, Tomasz and Hoang, Hieu and Heafield, Kenneth and
+               Neckermann, Tom and Seide, Frank and Germann, Ulrich and
+               Fikri Aji, Alham and Bogoychev, Nikolay and
+               Martins, Andr<span class="k">\'</span><span class="p">{</span>e<span class="p">}</span> F. T. and Birch, Alexandra<span class="p">}</span>,
+  booktitle = <span class="p">{</span>Proceedings of ACL 2018, System Demonstrations<span class="p">}</span>,
+  pages     = <span class="p">{</span>116--121<span class="p">}</span>,
+  publisher = <span class="p">{</span>Association for Computational Linguistics<span class="p">}</span>,
+  year      = <span class="p">{</span>2018<span class="p">}</span>,
+  month     = <span class="p">{</span>July<span class="p">}</span>,
+  address   = <span class="p">{</span>Melbourne, Australia<span class="p">}</span>,
+  url       = <span class="p">{</span>http://www.aclweb.org/anthology/P18-4020<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="selected-papers">Selected papers</h2>
+
+<p>Selected papers on the Marian NMT Tootlkit:</p>
+
+<ol class="bibliography"><li><span class="bibtex-entry" id="kim2019wngt">
+
+  <span id="kim2019wngt">Young Jin Kim, Marcin Junczys-Dowmunt, Hany Hassan, Alham Fikri Fikri Aji, Kenneth Heafield, Roman Grundkiewicz, and Nikolay Bogoychev. 2019. From Research to Production and Back: Ludicrously Fast Neural Machine Translation. In <i>Proceedings of the Third Workshop on Neural Generation and Translation</i>, Hong Kong. Association for Computational Linguistics.</span>
+
+  <a class="bibtex-bib" href="#bibtex-source-kim2019wngt" data-toggle="collapse">[bib]</a>
+
+  
+
+  <pre id="bibtex-source-kim2019wngt" class="collapse">@inproceedings{kim2019wngt,
+  title = {From Research to Production and Back: Ludicrously Fast Neural Machine Translation},
+  author = {Kim, Young Jin and Junczys-Dowmunt, Marcin and Hassan, Hany and Fikri Aji, Alham Fikri and Heafield, Kenneth and Grundkiewicz, Roman and Bogoychev, Nikolay},
+  booktitle = {Proceedings of the Third Workshop on Neural Generation and Translation},
+  publisher = {Association for Computational Linguistics},
+  year = {2019},
+  address = {Hong Kong}
+}
+</pre>
+</span>
+</li>
+<li><span class="bibtex-entry" id="junczys2019wmt">
+
+  <span id="junczys2019wmt">Marcin Junczys-Dowmunt. 2019. Microsoft Translator at WMT 2019: Towards Large-Scale Document-Level Neural Machine Translation. In <i>Proceedings of the Fourth Conference on Machine Translation (Volume 2: Shared Task Papers, Day 1)</i>, pages 225–233, Florence, Italy. Association for Computational Linguistics.</span>
+
+  <a class="bibtex-bib" href="#bibtex-source-junczys2019wmt" data-toggle="collapse">[bib]</a>
+
+  
+    <a class="bibtex-pdf" target="_blank" href="http://www.aclweb.org/anthology/W19-5321">[pdf]</a>
+  
+
+  <pre id="bibtex-source-junczys2019wmt" class="collapse">@inproceedings{junczys2019wmt,
+  author = {Junczys-Dowmunt, Marcin},
+  title = {{Microsoft Translator} at {WMT} 2019: Towards Large-Scale Document-Level Neural Machine Translation},
+  booktitle = {Proceedings of the Fourth Conference on Machine Translation (Volume 2: Shared Task Papers, Day 1)},
+  year = {2019},
+  address = {Florence, Italy},
+  publisher = {Association for Computational Linguistics},
+  pages = {225--233},
+  url = {http://www.aclweb.org/anthology/W19-5321}
+}
+</pre>
+</span>
+</li>
+<li><span class="bibtex-entry" id="bogoychev2018accelerating">
+
+  <span id="bogoychev2018accelerating">Nikolay Bogoychev, Kenneth Heafield, Alham Fikri Aji, and Marcin Junczys-Dowmunt. 2018. Accelerating Asynchronous Stochastic Gradient Descent for Neural Machine Translation. In <i>Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing</i>, pages 2991–2996, Brussels, Belgium. Association for Computational Linguistics.</span>
+
+  <a class="bibtex-bib" href="#bibtex-source-bogoychev2018accelerating" data-toggle="collapse">[bib]</a>
+
+  
+    <a class="bibtex-pdf" target="_blank" href="https://www.aclweb.org/anthology/D18-1332">[pdf]</a>
+  
+
+  <pre id="bibtex-source-bogoychev2018accelerating" class="collapse">@inproceedings{bogoychev2018accelerating,
+  title = {Accelerating Asynchronous Stochastic Gradient Descent for Neural Machine Translation},
+  author = {Bogoychev, Nikolay and Heafield, Kenneth and Aji, Alham Fikri and Junczys-Dowmunt, Marcin},
+  booktitle = {Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing},
+  year = {2018},
+  address = {Brussels, Belgium},
+  publisher = {Association for Computational Linguistics},
+  url = {https://www.aclweb.org/anthology/D18-1332},
+  pages = {2991--2996}
+}
+</pre>
+</span>
+</li>
+<li><span class="bibtex-entry" id="junczys2018fast">
+
+  <span id="junczys2018fast">Marcin Junczys-Dowmunt, Kenneth Heafield, Hieu Hoang, Roman Grundkiewicz, and Anthony Aue. 2018. Marian: Cost-effective High-Quality Neural Machine Translation in C++. In <i>Proceedings of the Second Workshop on Neural Machine Translation</i>, Melbourne, Australia. Association for Computational Linguistics.</span>
+
+  <a class="bibtex-bib" href="#bibtex-source-junczys2018fast" data-toggle="collapse">[bib]</a>
+
+  
+    <a class="bibtex-pdf" target="_blank" href="https://arxiv.org/abs/1805.12096">[pdf]</a>
+  
+
+  <pre id="bibtex-source-junczys2018fast" class="collapse">@inproceedings{junczys2018fast,
+  title = {Marian: Cost-effective High-Quality Neural Machine Translation in {C++}},
+  author = {Junczys-Dowmunt, Marcin and Heafield, Kenneth and Hoang, Hieu and Grundkiewicz, Roman and Aue, Anthony},
+  booktitle = {Proceedings of the Second Workshop on Neural Machine Translation},
+  publisher = {Association for Computational Linguistics},
+  year = {2018},
+  address = {Melbourne, Australia},
+  url = {https://arxiv.org/abs/1805.12096}
+}
+</pre>
+</span>
+</li>
+<li><span class="bibtex-entry" id="hoang2018fast">
+
+  <span id="hoang2018fast">Hieu Hoang, Tomasz Dwojak, Rihards Krislauks, Daniel Torregrosa, and Kenneth Heafield. 2018. Fast Neural Machine Translation Implementation. In <i>Proceedings of the Second Workshop on Neural Machine Translation</i>, Melbourne, Australia. Association for Computational Linguistics.</span>
+
+  <a class="bibtex-bib" href="#bibtex-source-hoang2018fast" data-toggle="collapse">[bib]</a>
+
+  
+    <a class="bibtex-pdf" target="_blank" href="https://arxiv.org/abs/1805.09863">[pdf]</a>
+  
+
+  <pre id="bibtex-source-hoang2018fast" class="collapse">@inproceedings{hoang2018fast,
+  title = {Fast Neural Machine Translation Implementation},
+  author = {Hoang, Hieu and Dwojak, Tomasz and Krislauks, Rihards and Torregrosa, Daniel and Heafield, Kenneth},
+  booktitle = {Proceedings of the Second Workshop on Neural Machine Translation},
+  publisher = {Association for Computational Linguistics},
+  year = {2018},
+  address = {Melbourne, Australia},
+  url = {https://arxiv.org/abs/1805.09863}
+}
+</pre>
+</span>
+</li>
+<li><span class="bibtex-entry" id="mariannmt">
+
+  <span id="mariannmt">Marcin Junczys-Dowmunt, Roman Grundkiewicz, Tomasz Dwojak, Hieu Hoang, Kenneth Heafield, Tom Neckermann, Frank Seide, Ulrich Germann, Alham Fikri Aji, Nikolay Bogoychev, André F. T. Martins, and Alexandra Birch. 2018. Marian: Fast Neural Machine Translation in C++. In <i>Proceedings of ACL 2018, System Demonstrations</i>, pages 116–121, Melbourne, Australia. Association for Computational Linguistics.</span>
+
+  <a class="bibtex-bib" href="#bibtex-source-mariannmt" data-toggle="collapse">[bib]</a>
+
+  
+    <a class="bibtex-pdf" target="_blank" href="http://www.aclweb.org/anthology/P18-4020">[pdf]</a>
+  
+
+  <pre id="bibtex-source-mariannmt" class="collapse">@inproceedings{mariannmt,
+  title = {Marian: Fast Neural Machine Translation in {C++}},
+  author = {Junczys-Dowmunt, Marcin and Grundkiewicz, Roman and Dwojak, Tomasz and Hoang, Hieu and Heafield, Kenneth and Neckermann, Tom and Seide, Frank and Germann, Ulrich and Fikri Aji, Alham and Bogoychev, Nikolay and Martins, Andr\'{e} F. T. and Birch, Alexandra},
+  booktitle = {Proceedings of ACL 2018, System Demonstrations},
+  pages = {116--121},
+  publisher = {Association for Computational Linguistics},
+  year = {2018},
+  address = {Melbourne, Australia},
+  url = {http://www.aclweb.org/anthology/P18-4020}
+}
+</pre>
+</span>
+</li>
+<li><span class="bibtex-entry" id="junczys2017exploration">
+
+  <span id="junczys2017exploration">Marcin Junczys-Dowmunt and Roman Grundkiewicz. 2017. An Exploration of Neural Sequence-to-Sequence Architectures for Automatic Post-Editing. In <i>The 8th International Joint Conference on Natural Language Processing (IJCNLP 2017)</i>, Taiwan, Taipei. Association for Computational Linguistics.</span>
+
+  <a class="bibtex-bib" href="#bibtex-source-junczys2017exploration" data-toggle="collapse">[bib]</a>
+
+  
+    <a class="bibtex-pdf" target="_blank" href="https://arxiv.org/abs/1706.04138">[pdf]</a>
+  
+
+  <pre id="bibtex-source-junczys2017exploration" class="collapse">@inproceedings{junczys2017exploration,
+  title = {An Exploration of Neural Sequence-to-Sequence Architectures for Automatic Post-Editing},
+  author = {Junczys-Dowmunt, Marcin and Grundkiewicz, Roman},
+  booktitle = {The 8th International Joint Conference on Natural Language Processing (IJCNLP 2017)},
+  publisher = {Association for Computational Linguistics},
+  year = {2017},
+  address = {Taiwan, Taipei},
+  url = {https://arxiv.org/abs/1706.04138}
+}
+</pre>
+</span>
+</li>
+<li><span class="bibtex-entry" id="martins2017pushing">
+
+  <span id="martins2017pushing">André Martins, Marcin Junczys-Dowmunt, Fabio N Kepler, Ramón Astudillo, Chris Hokamp, and Roman Grundkiewicz. 2017. Pushing the Limits of Translation Quality Estimation. <i>Transactions of the Association for Computational Linguistics</i>, 5:205–218.</span>
+
+  <a class="bibtex-bib" href="#bibtex-source-martins2017pushing" data-toggle="collapse">[bib]</a>
+
+  
+    <a class="bibtex-pdf" target="_blank" href="https://transacl.org/ojs/index.php/tacl/article/view/1113">[pdf]</a>
+  
+
+  <pre id="bibtex-source-martins2017pushing" class="collapse">@article{martins2017pushing,
+  title = {Pushing the Limits of Translation Quality Estimation},
+  author = {Martins, Andr{\'e} and Junczys-Dowmunt, Marcin and Kepler, Fabio N and Astudillo, Ram{\'o}n and Hokamp, Chris and Grundkiewicz, Roman},
+  journal = {Transactions of the Association for Computational Linguistics},
+  publisher = {Association for Computational Linguistics},
+  volume = {5},
+  issn = {2307-387X},
+  url = {https://transacl.org/ojs/index.php/tacl/article/view/1113},
+  pages = {205--218},
+  year = {2017}
+}
+</pre>
+</span>
+</li>
+<li><span class="bibtex-entry" id="junczys2016neural">
+
+  <span id="junczys2016neural">Marcin Junczys-Dowmunt, Tomasz Dwojak, and Hieu Hoang. 2016. Is Neural Machine Translation Ready for Deployment? A Case Study on 30 Translation Directions. In <i>Proceedings of the 9th International Workshop on Spoken Language Translation (IWSLT)</i>, Seattle, WA.</span>
+
+  <a class="bibtex-bib" href="#bibtex-source-junczys2016neural" data-toggle="collapse">[bib]</a>
+
+  
+    <a class="bibtex-pdf" target="_blank" href="http://workshop2016.iwslt.org/downloads/IWSLT_2016_paper_4.pdf">[pdf]</a>
+  
+
+  <pre id="bibtex-source-junczys2016neural" class="collapse">@inproceedings{junczys2016neural,
+  title = {Is Neural Machine Translation Ready for Deployment? A Case Study on 30 Translation Directions},
+  author = {Junczys-Dowmunt, Marcin and Dwojak, Tomasz and Hoang, Hieu},
+  booktitle = {Proceedings of the 9th International Workshop on Spoken Language Translation (IWSLT)},
+  year = {2016},
+  address = {Seattle, WA},
+  url = {http://workshop2016.iwslt.org/downloads/IWSLT_2016_paper_4.pdf}
+}
+</pre>
+</span>
+</li>
+<li><span class="bibtex-entry" id="junczys2016log">
+
+  <span id="junczys2016log">Marcin Junczys-Dowmunt and Roman Grundkiewicz. 2016. Log-linear Combinations of Monolingual and Bilingual Neural Machine Translation Models for Automatic Post-Editing. In <i>Proceedings of the First Conference on Machine Translation</i>, pages 751–758, Berlin, Germany. Association for Computational Linguistics.</span>
+
+  <a class="bibtex-bib" href="#bibtex-source-junczys2016log" data-toggle="collapse">[bib]</a>
+
+  
+    <a class="bibtex-pdf" target="_blank" href="http://www.aclweb.org/anthology/W16-2378">[pdf]</a>
+  
+
+  <pre id="bibtex-source-junczys2016log" class="collapse">@inproceedings{junczys2016log,
+  author = {Junczys-Dowmunt, Marcin and Grundkiewicz, Roman},
+  title = {Log-linear Combinations of Monolingual and Bilingual Neural Machine Translation Models for Automatic Post-Editing},
+  booktitle = {Proceedings of the First Conference on Machine Translation},
+  publisher = {Association for Computational Linguistics},
+  year = {2016},
+  address = {Berlin, Germany},
+  pages = {751--758},
+  url = {http://www.aclweb.org/anthology/W16-2378}
+}
+</pre>
+</span>
+</li></ol>
+
+<p>See more papers citing
+<a href="https://scholar.google.co.uk/scholar?oi=bibs&amp;hl=en&amp;cites=6156277269319504697">Marian</a>
+and
+<a href="https://scholar.google.co.uk/scholar?oi=bibs&amp;hl=en&amp;cites=14488488693117480286">Amun</a>
+on Google Scholar.</p>
+
+<h2 id="press">Press</h2>
+
+<ul>
+  <li><a href="https://www.microsoft.com/en-us/translator/blog/2019/06/17/neural-machine-translation-enabling-human-parity-innovations-in-the-cloud/">Neural Machine Translation Enabling Human Parity Innovations In the Cloud</a></li>
+  <li><a href="https://slator.com/technology/neural-conquers-patent-translation-in-major-wipo-roll-out/">Neural Conquers Patent Translation in Major WIPO Roll-out</a> on <a href="https://slator.com">Slator</a></li>
+  <li><a href="http://www.wipo.int/pressroom/en/articles/2016/article_0014.html">WIPO Develops Cutting-Edge Translation Tool For Patent Documents</a></li>
+</ul>
+
+<!--
+## Research and innovation projects
+
+* [SUMMA](http://summa-project.eu/) -- Scalable Understanding of Multilingual MediA
+* [ModernMT](http://www.modernmt.eu/) -- Next Generation Machine Translation
+* [TraMOOC](http://tramooc.eu/) -- Translation for Massive Open Online Courses
+-->
+
+
+            </div><!--//content-inner-->
+          </div><!--//doc-content-->
+
+          <div class="doc-sidebar hidden-xs">
+            <nav id="doc-nav"></nav>
+          </div><!--//doc-sidebar-->
+
+        </div><!--//doc-body-->
+
+      </div><!--//container-->
+    </div><!--//doc-wrapper-->
+
+    </div><!--//page-wrapper-->
+
+    <footer id="footer" class="footer text-center">
+  <div class="container">
+    <p>
+     Marian - an efficient Neural Machine Translation framework written in pure C++.</br>
+      Mainly developed at Microsoft Translator and at the University of Edinburgh.
+    </p>
+    <p><a href="https://github.com/marian-nmt/marian#marian">Marian</a> is licensed under the <a href="https://github.com/marian-nmt/marian/blob/master/LICENSE.md">MIT license</a>.</p>
+    <p><small class="copyright footnote">Based on the theme PrettyDocs designed by <a href="http://themes.3rdwavemedia.com/" targe="_blank">Xiaoying Riley</a> with modifications.</small></p>
+  </div><!--//container-->
+</footer><!--//footer-->
+
+    <!-- Main Javascript -->
+<script type="text/javascript"> localStorage.clear();</script>
+
+<script type="text/javascript" src="/assets/plugins/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/jquery-match-height/jquery.matchHeight-min.js"></script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/main.js"></script>
+<script type="text/javascript" src="/assets/js/toc.js"></script>
+
+
+  </body>
+</html>
