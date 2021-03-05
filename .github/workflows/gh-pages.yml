@@ -14,32 +14,21 @@ jobs:
         with:
           submodules: false
 
-      # - name: Setup Ruby
-      #   uses: ruby/setup-ruby@v1
-      #   with:
-      #     ruby-version: 2.7
-
-      - name: Cache Gemfile
-        uses: actions/cache@v2
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile') }}
-          restore-keys: |
-            ${{ runner.os }}-gems-
+          ruby-version: 2.7
 
-      - name: Build Site
-        uses:  helaili/jekyll-action@v2
+      - name: Build Jekyll
+        uses: limjh16/jekyll-action-ts@v2
         with:
-          build_only: true
+          enable_cache: true
+          custom_opts: '--baseurl /${{ github.event.repository.name }}'
 
       - name: Test
         run: ls -valphs
 
-# Plan
- # - Build Jekyll
- # - Build marian-dev/docs
- # - Build marian-dev and output CLI options
- # - commit all of these
+
 
       # - name: Install
       #   uses: limjh16/jekyll-action-ts@v2
