@@ -1,0 +1,64 @@
+name: Website
+
+on:
+  push:
+    branches:
+      - content
+
+jobs:
+  jekyll:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout website source
+        uses: actions/checkout@v2
+        with:
+          submodules: false
+
+      # - name: Setup Ruby
+      #   uses: ruby/setup-ruby@v1
+      #   with:
+      #     ruby-version: 2.7
+
+      - name: Cache Gemfile
+        uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+
+      - name: Build Site
+        uses:  helaili/jekyll-action@v2
+        with:
+          build_only: true
+
+      - name: Test
+        run: ls -valphs
+
+# Plan
+ # - Build Jekyll
+ # - Build marian-dev/docs
+ # - Build marian-dev and output CLI options
+ # - commit all of these
+
+      # - name: Install
+      #   uses: limjh16/jekyll-action-ts@v2
+      #   with:
+      #     enable_cache: true
+      #     custom_opts: '--baseurl /${{ github.event.repository.name }}'
+      #
+      # - name: Cache HTML
+      #   uses: actions/cache@v2
+      #   with:
+      #     path: ~/._site
+      #     key: jekyll
+      #   restore-keys: |
+      #     jekyll
+      #
+      # - name: Deploy
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: ./_site
+      #     publish_branch: gh-pages
+      #     enable_jekyll: false # prevents GitHub running Jekyll
