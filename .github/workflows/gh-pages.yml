@@ -26,8 +26,36 @@ jobs:
           custom_opts: '--baseurl /${{ github.event.repository.name }}'
 
       - name: Test
-        run: ls -valphs
+        run: |
+          ls -valphs
+          ls -valphs ./_site
 
+# # Generates API docs
+#   docs:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout website source
+#         uses: actions/checkout@v2
+#         with:
+#           submodules: recursive
+#       - run: ls -valpsh marian-dev
+
+# # Compiles Marian and ingests CLI options
+#     cli:
+#       runs-on: ubuntu-latest
+#       steps:
+#         - name: Checkout website source
+#           uses: actions/checkout@v2
+#           with:
+#             submodules: recursive
+#         - run: ls -valpsh marian-dev
+
+# # Deploy to branch
+#     deploy:
+#       # needs: [jekyll, docs, cli]
+#       runs-on: ubuntu-latest
+#       steps:
+#         - run: git push
 
 
       # - name: Install
