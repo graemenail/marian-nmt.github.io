@@ -95,7 +95,7 @@ jobs:
           CC=/usr/bin/gcc-${{ env.gcc }} CXX=/usr/bin/g++-${{ env.gcc }} CUDAHOSTCXX=/usr/bin/g++-${{ env.gcc }} \
           cmake .. \
             -DCMAKE_BUILD_TYPE=Release \
-            -DUSE-CCACHE=ON \
+            -DUSE_CCACHE=ON \
             -DCOMPILE_CPU=ON \
             -DCOMPILE_CUDA=ON \
             -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-11.2/ \
