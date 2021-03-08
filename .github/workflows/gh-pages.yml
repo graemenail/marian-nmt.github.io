@@ -57,7 +57,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update -y && \
-          sudo apt-get install -y libboost-all-dev libgoogle-perftools-dev \
+          sudo apt-get install -y ccache libboost-all-dev libgoogle-perftools-dev \
             libprotobuf-dev protobuf-compiler
 
       # - name: Install MKL
@@ -95,6 +95,7 @@ jobs:
           CC=/usr/bin/gcc-${{ env.gcc }} CXX=/usr/bin/g++-${{ env.gcc }} CUDAHOSTCXX=/usr/bin/g++-${{ env.gcc }} \
           cmake .. \
             -DCMAKE_BUILD_TYPE=Release \
+            -DUSE-CCACHE=ON \
             -DCOMPILE_CPU=ON \
             -DCOMPILE_CUDA=ON \
             -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-11.2/ \
@@ -105,9 +106,17 @@ jobs:
             -DUSE_SENTENCEPIECE=ON \
             -DUSE_STATIC_LIBS=OFF
 
+      - name: Set up cache for ccache
+        uses: actions/cache@v2
+        with:
+          path: ~/.ccache
+          key: ${{ runner.os }}-ccache-${{ hashFiles('marian-dev/VERSION') }}
+          restore-keys: |
+            ${{ runner.os }}-ccache
+
       - name: Compile
         working-directory: marian-dev/build
-        run: make -j
+        run: make -j2
 
       - name: Get Version
         working-directory: marian-dev/build
