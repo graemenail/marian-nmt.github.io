@@ -28,10 +28,9 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sudo apt-get update -y
-          sudo apt-get install -y libgoogle-perftools-dev libprotobuf-dev protobuf-compiler
-
-      - run: sudo apt-get install -y libboost-all-dev
+          sudo apt-get update -y && \
+          sudo apt-get install -y libboost-all-dev libgoogle-perftools-dev \
+            libprotobuf-dev protobuf-compiler
 
       # - name: Install MKL
       # run: |
@@ -79,11 +78,11 @@ jobs:
             -DUSE_STATIC_LIBS=OFF
 
       - name: Compile
-        working-directory: ~/marian-dev/build
+        working-directory: marian-dev/build
         run: make -j
 
       - name: Get Version
-        working-directory: ~/marian-dev/build
+        working-directory: marian-dev/build
         run: |
           mkdir -p cli
           for cmd in marian marian-{decoder,server,scorer,vocab,conv}; do
@@ -104,6 +103,7 @@ jobs:
   # ------------------------------------------------------------------
   jekyll:
     runs-on: ubuntu-latest
+    if: ${{ false }} # disabled for now
     steps:
       - name: Checkout website source
         uses: actions/checkout@v2
