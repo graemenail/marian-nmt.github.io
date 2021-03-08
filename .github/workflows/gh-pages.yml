@@ -127,6 +127,9 @@ jobs:
             ./${cmd} --help | tee cli/${cmd}.md
           done
 
+          ls -valphs
+          ls -valphs cli/
+
       # This artifact contains the HTML output of Sphinx only.
       # With index.html at the root of the produced zip file.
       - name: Upload CLI
