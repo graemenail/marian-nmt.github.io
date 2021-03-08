@@ -15,27 +15,27 @@ jobs:
   # ------------------------------------------------------------------
   # Check if marian submodule was updated
   # ------------------------------------------------------------------
-check_source:
-    name: Check for source changes
-    runs-on: ubuntu-latest
-    outputs:
-      changed: ${{ steps.check.outputs.changed }}
-    steps:
-      - name: Checkout source code
-        uses: actions/checkout@v2
+  check_source:
+      name: Check for source changes
+      runs-on: ubuntu-latest
+      outputs:
+        changed: ${{ steps.check.outputs.changed }}
+      steps:
+        - name: Checkout source code
+          uses: actions/checkout@v2
 
-      - name: Determine changes since last event
-        id: check
-        env:
-          ref: ${{ github.event.before }}
-        run: |
-          if [ -z "${{ env.ref }}" ]; then
-            echo '::set-output name=changed::true';
-          else
-            git fetch origin ${{ env.ref }} --depth=1
-            git diff --name-only ${{ env.ref }}.. | grep '^marian-dev' && \
-              echo '::set-output name=changed::true' || true
-          fi
+        - name: Determine changes since last event
+          id: check
+          env:
+            ref: ${{ github.event.before }}
+          run: |
+            if [ -z "${{ env.ref }}" ]; then
+              echo '::set-output name=changed::true';
+            else
+              git fetch origin ${{ env.ref }} --depth=1
+              git diff --name-only ${{ env.ref }}.. | grep '^marian-dev' && \
+                echo '::set-output name=changed::true' || true
+            fi
 
   # ------------------------------------------------------------------
   # Compile Marian to get CLI options
