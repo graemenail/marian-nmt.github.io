@@ -126,6 +126,7 @@ jobs:
 # Generates API docs
   api-documentation:
     runs-on: ubuntu-latest
+    if: ${{ false }} # disabled for now
     defaults:
       run:
         working-directory: marian-dev
