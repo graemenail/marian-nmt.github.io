@@ -17,9 +17,9 @@ jobs:
   # ------------------------------------------------------------------
   check_source:
       name: Check for source changes
-      runs-on: ubuntu-latest
       outputs:
         changed: ${{ steps.check.outputs.changed }}
+      runs-on: ubuntu-latest
       steps:
         - name: Checkout source code
           uses: actions/checkout@v2
@@ -41,12 +41,13 @@ jobs:
   # Compile Marian to get CLI options
   # ------------------------------------------------------------------
   cli:
-    runs-on: ubuntu-latest
+    name: Build CLI documentation
     needs: [check_source]
     if: needs.check_source.outputs.changed == 'true'
     defaults:
       run:
         working-directory: marian-dev
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout source code
         uses: actions/checkout@v2
@@ -129,9 +130,10 @@ jobs:
   # Build website source
   # ------------------------------------------------------------------
   site:
-    runs-on: ubuntu-latest
+    name: Build website
     needs: [cli]
     if: ${{ !failure() }}  # skipped needs are fine, but failures are not
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout website source
         uses: actions/checkout@v2
@@ -159,9 +161,10 @@ jobs:
 
 # Generates API docs
   api:
-    runs-on: ubuntu-latest
+    name: Build API documentation
     needs: [check_source]
     if: needs.check_source.outputs.changed == 'true'
+    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: marian-dev
@@ -206,6 +209,7 @@ jobs:
 
 # Deploy to branch
   deploy:
+    name: Deploy to live branch
     needs: [site, api, cli]
     if: ${{ !failure() }}  # skipped needs are fine, but failures are not
     runs-on: ubuntu-latest
