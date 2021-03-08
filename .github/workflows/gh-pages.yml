@@ -7,7 +7,8 @@ on:
 
 env:
   SITE: live
-  cuda: "10.2"
+  gcc: 7
+  cuda: "11.2"
 
 
 jobs:
@@ -59,11 +60,12 @@ jobs:
         run: |
           mkdir -p build
           cd build
+          CC=/usr/bin/gcc-${{ env.gcc }} CXX=/usr/bin/g++-${{ env.gcc }} CUDAHOSTCXX=/usr/bin/g++-${{ env.gcc }} \
           cmake .. \
             -DCOMPILE_CPU=ON \
             -DCOMPILE_CUDA=ON \
-            -DCOMPILE_EXAMPLES=OFF \
             -DCOMPILE_SERVER=ON \
+            -DCOMPILE_EXAMPLES=OFF \
             -DCOMPILE_TESTS=OFF \
             -DUSE_FBGEMM=ON \
             -DUSE_SENTENCEPIECE=ON \
@@ -78,7 +80,8 @@ jobs:
         run: |
           mkdir -p cli
           for cmd in marian marian-{decoder,server,scorer,vocab,conv}; do
-            ./${cmd} --version | tee cli/${cmd}.md
+            ./${cmd} --version | tee cli/${cmd}.version
+            ./${cmd} --help | tee cli/${cmd}.md
           done
 
       # This artifact contains the HTML output of Sphinx only.
