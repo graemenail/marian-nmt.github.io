@@ -60,6 +60,8 @@ jobs:
           sudo apt-get install -y ccache libboost-all-dev libgoogle-perftools-dev \
             libprotobuf-dev protobuf-compiler
 
+      - run: ccache -s
+
       # - name: Install MKL
       # run: |
       #   wget -qO- "https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB" | sudo apt-key add -
@@ -109,7 +111,7 @@ jobs:
       - name: Set up cache for ccache
         uses: actions/cache@v2
         with:
-          path: ~/.ccache
+          path: .ccache
           key: ${{ runner.os }}-ccache-${{ hashFiles('marian-dev/VERSION') }}
           restore-keys: |
             ${{ runner.os }}-ccache
