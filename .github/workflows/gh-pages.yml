@@ -16,8 +16,9 @@ jobs:
   # ------------------------------------------------------------------
   cli:
     runs-on: ubuntu-latest
-    run:
-      working-directory: marian-dev
+    defaults:
+      run:
+        working-directory: marian-dev
     steps:
       - name: Checkout website source
         uses: actions/checkout@v2
