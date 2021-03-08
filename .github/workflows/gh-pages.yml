@@ -38,8 +38,9 @@ jobs:
       #   sudo apt-get install -y --no-install-recommends intel-mkl-64bit-2020.0-088
 
       - name: Install CUDA
-        run: ./scripts/ci/install_cuda_ubuntu.sh ${{ env.cuda }}
-
+        run: |
+          ./scripts/ci/install_cuda_ubuntu.sh ${{ env.cuda }}
+          ls -valpsh /usr/local/
     # - name: Configure CMake
     #   run: |
     #     export LDFLAGS="-L/usr/local/opt/openblas/lib"
