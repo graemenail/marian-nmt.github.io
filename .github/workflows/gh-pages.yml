@@ -132,6 +132,8 @@ jobs:
           ls -valphs
           ls -valphs cli/
 
+      - run: ccache -s
+
       # This artifact contains the HTML output of Sphinx only.
       # With index.html at the root of the produced zip file.
       - name: Upload CLI
