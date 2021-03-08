@@ -28,8 +28,9 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sudo apt install -y libboost-all-dev  libgoogle-perftools-dev \
-            libprotobuf-dev protobuf-compiler
+          sudo apt-get install -y libgoogle-perftools-dev libprotobuf-dev protobuf-compiler
+
+      - run: sudo apt-get install -y libboost-all-dev
 
       # - name: Install MKL
       # run: |
