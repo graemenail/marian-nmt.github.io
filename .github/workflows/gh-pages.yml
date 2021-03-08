@@ -43,7 +43,7 @@ jobs:
   cli:
     name: Build CLI documentation
     needs: [check_source]
-    if: needs.check_source.outputs.changed == 'true'
+    # if: needs.check_source.outputs.changed == 'true'
     defaults:
       run:
         working-directory: marian-dev
