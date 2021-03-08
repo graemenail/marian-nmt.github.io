@@ -5,14 +5,99 @@ on:
     branches:
       - content
 
+env:
+  SITE: live
+  cuda: "10.2"
+
+
 jobs:
+  # ------------------------------------------------------------------
+  # Compile Marian to get CLI options
+  # ------------------------------------------------------------------
+  cli:
+    runs-on: ubuntu-latest
+    run:
+      working-directory: marian-dev
+    steps:
+      - name: Checkout website source
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Install dependencies
+        run: sudo apt-get install -y libgoogle-perftools-dev libprotobuf-dev protobuf-compiler
+
+
+      # - name: Install MKL
+      # run: |
+      #   wget -qO- "https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB" | sudo apt-key add -
+      #   sudo sh -c "echo deb https://apt.repos.intel.com/mkl all main > /etc/apt/sources.list.d/intel-mkl.list"
+      #   sudo apt-get update -o Dir::Etc::sourcelist="/etc/apt/sources.list.d/intel-mkl.list"
+      #   sudo apt-get install -y --no-install-recommends intel-mkl-64bit-2020.0-088
+
+      - name: Install CUDA
+        run: ./scripts/ci/install_cuda_ubuntu.sh ${{ env.cuda }}
+
+    # - name: Configure CMake
+    #   run: |
+    #     export LDFLAGS="-L/usr/local/opt/openblas/lib"
+    #     export CPPFLAGS="-I/usr/local/opt/openblas/include"
+    #     mkdir -p build
+    #     cd build
+    #     cmake .. \
+    #       -DCOMPILE_CPU=on \
+    #       -DCOMPILE_CUDA=off \
+    #       -DCOMPILE_EXAMPLES=on \
+    #       -DCOMPILE_SERVER=on \
+    #       -DCOMPILE_TESTS=on \
+    #       -DUSE_FBGEMM=on \
+    #       -DUSE_SENTENCEPIECE=on \
+    #       -DUSE_STATIC_LIBS=off
+
+    - name: Configure CMake
+      run: |
+        mkdir -p build
+        cd build
+        cmake .. \
+          -DCOMPILE_CPU=ON \
+          -DCOMPILE_CUDA=ON \
+          -DCOMPILE_EXAMPLES=OFF \
+          -DCOMPILE_SERVER=ON \
+          -DCOMPILE_TESTS=OFF \
+          -DUSE_FBGEMM=ON \
+          -DUSE_SENTENCEPIECE=ON \
+          -DUSE_STATIC_LIBS=OFF
+
+      - name: Compile
+        working-directory: ~/marian-dev/build
+        run: make -j
+
+      - name: Get Version
+        working-directory: ~/marian-dev/build
+        run: |
+          mkdir -p cli
+          for cmd in marian marian-{decoder,server,scorer,vocab,conv}; do
+            ./${cmd} --version | tee cli/${cmd}.md
+          done
+
+      # This artifact contains the HTML output of Sphinx only.
+      # With index.html at the root of the produced zip file.
+      - name: Upload CLI
+        uses: actions/upload-artifact@v2
+        with:
+          name: cli-output
+          path: ~/marian-dev/build/cli
+
+  # ------------------------------------------------------------------
+  # Build Jekyll source
+  # ------------------------------------------------------------------
   jekyll:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout website source
         uses: actions/checkout@v2
         with:
-          submodules: false
+          submodules: true
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
@@ -25,20 +110,57 @@ jobs:
           enable_cache: true
           custom_opts: '--baseurl /${{ github.event.repository.name }}'
 
-      - name: Test
-        run: |
-          ls -valphs
-          ls -valphs ./_site
+      # This artifact contains the HTML output of Sphinx only.
+      # With index.html at the root of the produced zip file.
+      - name: Upload documentation
+        uses: actions/upload-artifact@v2
+        with:
+          name: jekyll-output
+          path: ./_site
 
-# # Generates API docs
-#   docs:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout website source
-#         uses: actions/checkout@v2
-#         with:
-#           submodules: recursive
-#       - run: ls -valpsh marian-dev
+# Generates API docs
+  api-documentation:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: marian-dev
+    steps:
+      - name: Checkout website source
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Set up Doxygen
+        run: sudo apt-get install -y doxygen
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+
+      - name: Set up dependency cache
+        working-directory: marian-dev
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('doc/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+      - name: Install dependencies
+        working-directory: ./doc
+        run: pip install -r requirements.txt
+
+      - name: Build documentation
+        working-directory: ./doc
+        run: make html
+
+      # This artifact contains the HTML output of Sphinx only.
+      # With index.html at the root of the produced zip file.
+      - name: Upload documentation
+        uses: actions/upload-artifact@v2
+        with:
+          name: api-docs-output
+          path: ./marian-dev/doc/build/html
 
 # # Compiles Marian and ingests CLI options
 #     cli:
