@@ -140,19 +140,19 @@ jobs:
           python-version: 3.7
 
       - name: Set up dependency cache
-        working-directory: marian-dev
         uses: actions/cache@v2
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('doc/requirements.txt') }}
+          key: ${{ runner.os }}-pip-${{ hashFiles(' marian-dev/doc/requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
+
       - name: Install dependencies
-        working-directory: ./doc
+        working-directory: ./marian-dev/doc
         run: pip install -r requirements.txt
 
       - name: Build documentation
-        working-directory: ./doc
+        working-directory: ./marian-dev/doc
         run: make html
 
       # This artifact contains the HTML output of Sphinx only.
