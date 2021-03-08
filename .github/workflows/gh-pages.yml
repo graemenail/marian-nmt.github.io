@@ -136,7 +136,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: cli-output
-          path: ~/marian-dev/build/cli
+          path: marian-dev/build/cli
 
   # ------------------------------------------------------------------
   # Build website source
