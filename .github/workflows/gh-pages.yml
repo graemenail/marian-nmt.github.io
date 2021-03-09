@@ -57,10 +57,14 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update -y && \
-          sudo apt-get install -y ccache libboost-all-dev libgoogle-perftools-dev \
+          sudo apt-get install -y libboost-all-dev libgoogle-perftools-dev \
             libprotobuf-dev protobuf-compiler
 
-      - run: ccache -s
+
+      - name: Set up ccache
+        run:
+          sudo apt-get install -y ccache
+
 
       # - name: Install MKL
       # run: |
@@ -111,10 +115,12 @@ jobs:
       - name: Set up cache for ccache
         uses: actions/cache@v2
         with:
-          path: .ccache
-          key: ${{ runner.os }}-ccache-${{ hashFiles('marian-dev/VERSION') }}
+          path: ~/.ccache
+          key: ${{ runner.os }}-ccache-${{ hashFiles('marian-dev') }}
           restore-keys: |
-            ${{ runner.os }}-ccache
+            ${{ runner.os }}-ccache-
+
+      - run: ccache -s
 
       - name: Compile
         working-directory: marian-dev/build
@@ -141,6 +147,7 @@ jobs:
         with:
           name: cli-output
           path: marian-dev/build/cli
+          retention-days: 5
 
   # ------------------------------------------------------------------
   # Build website source
@@ -174,6 +181,7 @@ jobs:
         with:
           name: jekyll-output
           path: ./_site
+          retention-days: 5
 
 # Generates API docs
   api:
@@ -221,6 +229,7 @@ jobs:
         with:
           name: api-docs-output
           path: ./marian-dev/doc/build/html
+          retention-days: 5
 
 
 # Deploy to branch
