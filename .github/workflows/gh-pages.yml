@@ -120,7 +120,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-ccache-
 
-      - run: ccache -s
+      - run: |
+          ccache -s
+          ccache -z
 
       - name: Compile
         working-directory: marian-dev/build
