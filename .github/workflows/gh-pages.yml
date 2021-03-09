@@ -48,6 +48,8 @@ jobs:
       run:
         working-directory: marian-dev
     runs-on: ubuntu-latest
+    env:
+        CCACHE_BASEDIR: $GITHUB_WORKSPACE
     steps:
       - name: Checkout source code
         uses: actions/checkout@v2
@@ -59,6 +61,8 @@ jobs:
           sudo apt-get update -y && \
           sudo apt-get install -y ccache libboost-all-dev \
             libgoogle-perftools-dev  libprotobuf-dev protobuf-compiler
+
+          ccache -p
 
       - name: Install CUDA
         run: |
