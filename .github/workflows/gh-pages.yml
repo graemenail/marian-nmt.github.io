@@ -7,7 +7,7 @@ on:
 
 env:
   source: content
-  SITE: live
+  deploy: live
   gcc: 7
   cuda: "11.2"
 
@@ -233,12 +233,6 @@ jobs:
     if: ${{ false }} && ${{ !failure() }}  # skipped needs are fine, but failures are not
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout live branch
-        uses: actions/checkout@v2
-        with:
-          ref: ${{ env.SITE }}
-          path: live
-
       - name: Download API
         if: needs.api.result == 'success'  #
         uses: actions/download-artifact@v2
@@ -254,7 +248,15 @@ jobs:
 
       - name: Combine
         run:
-          rsync jekyll/docs/docs
+          rsync -a --dry-run api/ jekyll/docs/docs
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./jekyll
+          publish_branch: ${{ env.deploy }}
+          enable_jekyll: false # prevents GitHub running Jekyll
 
 
 
