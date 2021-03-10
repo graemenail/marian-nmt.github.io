@@ -160,7 +160,13 @@ jobs:
           name: cli-output
           path: docs/cmd
 
-      - run: git diff
+      - name: Commit CLI
+        if: needs.cli.result == 'success'
+        working-directory: docs/cmd
+        run: |
+          git diff
+          git add *.md
+          git status
 
       - name: Build Jekyll
         uses: limjh16/jekyll-action-ts@v2
@@ -176,6 +182,8 @@ jobs:
           name: jekyll-output
           path: ./_site
           retention-days: 5
+
+
 
 # Generates API docs
   api:
@@ -233,6 +241,12 @@ jobs:
     if: ${{ false }} && ${{ !failure() }}  # skipped needs are fine, but failures are not
     runs-on: ubuntu-latest
     steps:
+      - name: Download Jekyll
+        uses: actions/download-artifact@v2
+        with:
+          name: jekyll-output
+          path: jekyll
+
       - name: Download API
         if: needs.api.result == 'success'  #
         uses: actions/download-artifact@v2
@@ -240,13 +254,8 @@ jobs:
           name: api-docs-output
           path: api
 
-      - name: Download Jekyll
-        uses: actions/download-artifact@v2
-        with:
-          name: jekyll-output
-          path: jekyll
-
-      - name: Combine
+      - name: Combine API
+        if: needs.api.result == 'success'  #
         run:
           rsync -a --dry-run api/ jekyll/docs/docs
 
