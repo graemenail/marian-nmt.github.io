@@ -119,6 +119,7 @@ jobs:
           done
 
       - name: Test Update
+        working-directory: ${{ github.workspace }}
         run: |
           mkdir -p marian-dev/build/cli
           cp -v ./docs/cmd/marian-conv.md marian-dev/build/cli
