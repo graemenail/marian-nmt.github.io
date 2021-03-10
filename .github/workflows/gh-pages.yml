@@ -259,11 +259,24 @@ jobs:
         run:
           rsync -a --dry-run api/ jekyll/docs/docs
 
+      - name: Reuse old API
+        if: needs.api.result == 'skipped'
+        uses: actions/checkout@v2
+        with:
+          ref: live
+          path: api
+
+      - name: Combine
+        if: needs.api.result == 'skipped'
+        run:
+          rsync -a --dry-run api/docs/docs jekyll/docs/docs
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./jekyll
+          keep_files: true
           publish_branch: ${{ env.deploy }}
           enable_jekyll: false # prevents GitHub running Jekyll
 
