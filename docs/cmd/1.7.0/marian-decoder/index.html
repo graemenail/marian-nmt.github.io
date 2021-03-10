@@ -1,0 +1,309 @@
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+  <head>
+  <title>
+    
+    Marian :: Command-line options for marian-decoder
+    
+  </title>
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fast Neural Machine Translation in C++">
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Plugins CSS -->
+  <link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/assets/css/pygments/github.css">
+  <link rel="stylesheet" href="/assets/plugins/lightbox/lightbox.css">
+
+  <!-- Theme CSS -->
+  <link id="theme-style" rel="stylesheet" href="/assets/css/styles.css">
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <link rel="stylesheet" href="/assets/plugins/github-fork-ribbon-css/gh-fork-ribbon.css" />
+  <!--[if lt IE 9]>
+    <link rel="stylesheet" href="/assets/plugins/github-fork-ribbon-css/gh-fork-ribbon.ie.css" />
+  <![endif]-->
+
+  
+
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109819276-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-109819276-1');
+</script>
+
+  
+
+</head>
+
+
+  <body class="body-blue">
+    <a class="github-fork-ribbon" href="https://github.com/marian-nmt/marian" title="Fork me on GitHub">Fork me on GitHub</a>
+
+    <div class="page-wrapper">
+
+    <header id="header" class="header">
+  <div class="container">
+    <div class="branding">
+      <h1 class="logo">
+        <a href="/marian-nmt.github.io/">
+          <span aria-hidden="true" class="icon_documents_alt icon"></span>
+          <span class="text-highlight">Marian</span><span class="text-bold">NMT</span>
+        </a>
+      </h1>
+      <p class="description">Fast Neural Machine Translation in C++</p>
+    </div><!--//branding-->
+
+    <ol class="breadcrumb">
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/marian-nmt.github.io/quickstart/">Quick start</a>
+ </li>
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/marian-nmt.github.io/features/">Features &amp; Benchmarks</a>
+ </li>
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/marian-nmt.github.io/docs/">Documentation</a>
+ </li>
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/marian-nmt.github.io/examples/">Examples</a>
+ </li>
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/marian-nmt.github.io/faq">FAQ</a>
+ </li>
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/marian-nmt.github.io/publications/">Publications</a>
+ </li>
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/marian-nmt.github.io/blog">Blog</a>
+ </li>
+ 
+
+</ol>
+
+
+  </div><!--//container-->
+</header><!--//header-->
+
+
+    <div class="doc-wrapper">
+      <div class="container">
+
+        <div id="doc-header" class="doc-header text-center">
+          <h1 class="doc-title">
+            
+            <i class="icon fa fa-file-code-o }}"></i>
+            
+            Command-line options for marian-decoder
+          </h1>
+          <div class="meta">
+            <i class="fa fa-clock-o"></i>
+            Last updated: 10 March 2021
+          </div>
+        </div><!--//doc-header-->
+
+        <div class="doc-body">
+          <div class="doc-content">
+            <div class="content-inner">
+
+              <h2 id="marian-decoder">marian-decoder</h2>
+<p>Version: 
+v1.7.0 67124f8 2018-11-28 13:04:30 +0000</p>
+
+<p>Usage: <code class="highlighter-rouge">./marian/build/marian-decoder [OPTIONS]</code></p>
+
+<h3 id="general-options">General options</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-h,--help                             Print this help message and exit
+--version                             Print the version number and exit
+-c,--config VECTOR ...                Configuration file(s). If multiple, later overrides earlier
+-w,--workspace UINT=512               Preallocate  arg  MB of work space
+--log TEXT                            Log training process information to file given by  arg
+--log-level TEXT=info                 Set verbosity level of logging: trace, debug, info, warn, 
+                                      err(or), critical, off
+--log-time-zone TEXT                  Set time zone for the date shown on logging
+--quiet                               Suppress all logging to stderr. Logging to files still works
+--quiet-translation                   Suppress logging for translation
+--seed UINT                           Seed for all random number generators. 0 means initialize 
+                                      randomly
+--clip-gemm FLOAT                     If not 0 clip GEMM input values to +/- arg
+--interpolate-env-vars                allow the use of environment variables in paths, of the form 
+                                      ${VAR_NAME}
+--relative-paths                      All paths are relative to the config file location
+--dump-config TEXT                    Dump current (modified) configuration to stdout and exit. 
+                                      Possible values: full, minimal
+</code></pre></div></div>
+
+<h3 id="translator-options">Translator options</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-i,--input VECTOR=stdin ...           Paths to input file(s), stdin by default
+-o,--output TEXT=stdout               Paths to output file(s), stdout by default
+-v,--vocabs VECTOR ...                Paths to vocabulary files have to correspond to --input
+-b,--beam-size UINT=12                Beam size used during search with validating translator
+-n,--normalize FLOAT=0                Divide translation score by pow(translation length, arg)
+--max-length-factor FLOAT=3           Maximum target length as source length times factor
+--word-penalty FLOAT                  Subtract (arg * translation length) from translation score
+--allow-unk                           Allow unknown words to appear in output
+--n-best                              Generate n-best list
+--alignment TEXT                      Return word alignment. Possible values: 0.0-1.0, hard, soft
+-d,--devices VECTOR=0 ...             Specifies GPU ID(s) to use for training. Defaults to 
+                                      0..num-devices-1
+--num-devices UINT                    Number of GPUs to use for this process. Defaults to 
+                                      length(devices) or 1
+--cpu-threads UINT=0                  Use CPU-based computation with this many independent 
+                                      threads, 0 means GPU-based computation
+--max-length UINT=1000                Maximum length of a sentence in a training sentence pair
+--max-length-crop                     Crop a sentence to max-length instead of ommitting it if 
+                                      longer than max-length
+--mini-batch INT=1                    Size of mini-batch used during batched translation
+--mini-batch-words INT                Set mini-batch size based on words instead of sentences
+--maxi-batch INT=1                    Number of batches to preload for length-based sorting
+--maxi-batch-sort TEXT=none           Sorting strategy for maxi-batch: none, src, trg (not 
+                                      available for decoder)
+--shuffle-in-ram                      Keep shuffled corpus in RAM, do not write to temp file
+--optimize                            Optimize speed aggressively sacrificing memory or precision
+--skip-cost                           Ignore model cost during translation, not recommended for 
+                                      beam-size &gt; 1
+--shortlist VECTOR ...                Use softmax shortlist: path first best prune
+--weights VECTOR ...                  Scorer weights
+--output-sampling=false               Noise output layer with gumbel noise
+-p,--port UINT                        Port number for web socket server
+--ulr=false                           Enable ULR (Universal Language Representation)
+--ulr-query-vectors TEXT              Path to file with universal sources embeddings from 
+                                      projection into universal space
+--ulr-keys-vectors TEXT               Path to file with universal sources embeddings of traget 
+                                      keys from projection into universal space
+--ulr-trainable-transformation=false  Make Query Transformation Matrix A trainable
+--ulr-dim-emb INT                     ULR monolingual embeddings dimension
+--ulr-dropout FLOAT=0                 ULR dropout on embeddings attentions. Default is no dropout
+--ulr-softmax-temperature FLOAT=1     ULR softmax temperature to control randomness of 
+                                      predictions. Deafult is 1.0: no temperature
+</code></pre></div></div>
+
+
+            </div><!--//content-inner-->
+          </div><!--//doc-content-->
+
+          <div class="doc-sidebar hidden-xs">
+            <nav id="doc-nav"></nav>
+          </div><!--//doc-sidebar-->
+
+        </div><!--//doc-body-->
+
+      </div><!--//container-->
+    </div><!--//doc-wrapper-->
+
+    </div><!--//page-wrapper-->
+
+    <footer id="footer" class="footer text-center">
+  <div class="container">
+    <p>
+     Marian - an efficient Neural Machine Translation framework written in pure C++.</br>
+      Mainly developed at Microsoft Translator and at the University of Edinburgh.
+    </p>
+    <p><a href="https://github.com/marian-nmt/marian#marian">Marian</a> is licensed under the <a href="https://github.com/marian-nmt/marian/blob/master/LICENSE.md">MIT license</a>.</p>
+    <p><small class="copyright footnote">Based on the theme PrettyDocs designed by <a href="http://themes.3rdwavemedia.com/" targe="_blank">Xiaoying Riley</a> with modifications.</small></p>
+  </div><!--//container-->
+</footer><!--//footer-->
+
+    <!-- Main Javascript -->
+<script type="text/javascript"> localStorage.clear();</script>
+
+<script type="text/javascript" src="/assets/plugins/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/jquery-match-height/jquery.matchHeight-min.js"></script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/main.js"></script>
+<script type="text/javascript" src="/assets/js/toc.js"></script>
+
+
+  </body>
+</html>

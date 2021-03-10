@@ -1,0 +1,1051 @@
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+  <head>
+  <title>
+    
+    Marian :: Documentation
+    
+  </title>
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fast Neural Machine Translation in C++">
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Plugins CSS -->
+  <link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/assets/css/pygments/github.css">
+  <link rel="stylesheet" href="/assets/plugins/lightbox/lightbox.css">
+
+  <!-- Theme CSS -->
+  <link id="theme-style" rel="stylesheet" href="/assets/css/styles.css">
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <link rel="stylesheet" href="/assets/plugins/github-fork-ribbon-css/gh-fork-ribbon.css" />
+  <!--[if lt IE 9]>
+    <link rel="stylesheet" href="/assets/plugins/github-fork-ribbon-css/gh-fork-ribbon.ie.css" />
+  <![endif]-->
+
+  
+  <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  
+
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109819276-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-109819276-1');
+</script>
+
+  
+
+</head>
+
+
+  <body class="body-blue">
+    <a class="github-fork-ribbon" href="https://github.com/marian-nmt/marian" title="Fork me on GitHub">Fork me on GitHub</a>
+
+    <div class="page-wrapper">
+
+    <header id="header" class="header">
+  <div class="container">
+    <div class="branding">
+      <h1 class="logo">
+        <a href="/marian-nmt.github.io/">
+          <span aria-hidden="true" class="icon_documents_alt icon"></span>
+          <span class="text-highlight">Marian</span><span class="text-bold">NMT</span>
+        </a>
+      </h1>
+      <p class="description">Fast Neural Machine Translation in C++</p>
+    </div><!--//branding-->
+
+    <ol class="breadcrumb">
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/marian-nmt.github.io/quickstart/">Quick start</a>
+ </li>
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/marian-nmt.github.io/features/">Features &amp; Benchmarks</a>
+ </li>
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/marian-nmt.github.io/docs/">Documentation</a>
+ </li>
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/marian-nmt.github.io/examples/">Examples</a>
+ </li>
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/marian-nmt.github.io/faq">FAQ</a>
+ </li>
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/marian-nmt.github.io/publications/">Publications</a>
+ </li>
+ 
+
+ 
+ <li>
+   <a class="page-link" href="/marian-nmt.github.io/blog">Blog</a>
+ </li>
+ 
+
+</ol>
+
+
+  </div><!--//container-->
+</header><!--//header-->
+
+
+    <div class="doc-wrapper">
+      <div class="container">
+
+        <div id="doc-header" class="doc-header text-center">
+          <h1 class="doc-title">
+            
+            <i class="icon fa fa-file-code-o }}"></i>
+            
+            Documentation
+          </h1>
+          <div class="meta">
+            <i class="fa fa-clock-o"></i>
+            Last updated: 10 March 2021
+          </div>
+        </div><!--//doc-header-->
+
+        <div class="doc-body">
+          <div class="doc-content">
+            <div class="content-inner">
+
+              <h2 id="overview">Overview</h2>
+
+<p>Version:
+v1.7.0 67124f8 2018-11-28 13:04:30 +0000</p>
+
+<p>Marian toolkit provides the following tools:</p>
+
+<ul>
+  <li><a href="/docs/cmd/1.7.0/marian">marian</a>: for training NMT models and language models</li>
+  <li><a href="/docs/cmd/1.7.0/marian-decoder">marian-decoder</a>: for CPU and GPU translation using
+NMT models trained with Marian, and specific models trained with Nematus</li>
+  <li><a href="/docs/cmd/1.7.0/marian-server">marian-server</a>: a web-socket server providing
+translation service</li>
+  <li><a href="/docs/cmd/1.7.0/marian-scorer">marian-scorer</a>: for rescoring parallel text files
+and n-best lists</li>
+  <li><a href="/docs/cmd/1.7.0/marian-vocab">marian-vocab</a>: for creating a vocabulary from text
+given on STDIN</li>
+  <li><a href="/docs/cmd/amun">amun</a>: for CPU and GPU translation using specific models
+trained with Marian or Nematus</li>
+</ul>
+
+<h3 id="command-line-options">Command-line options</h3>
+
+<p>Click on the tool name above for a list of command line options.</p>
+
+<h3 id="model-types">Model types</h3>
+
+<ul>
+  <li><code class="highlighter-rouge">s2s</code>: An RNN-based encoder-decoder model with attention mechanism. The
+architecture is equivalent to the
+<a href="https://github.com/nyu-dl/dl4mt-tutorial">DL4MT</a> or
+<a href="https://github.com/EdinburghNLP/nematus">Nematus</a> models (<a href="https://arxiv.org/abs/1703.04357">Senrich et al.,
+2017</a>).</li>
+  <li><code class="highlighter-rouge">transformer</code>: A model originally proposed by Google <a href="https://arxiv.org/abs/1706.03762">(Vaswani et al.,
+2017)</a> based solely on attention mechanisms.</li>
+  <li><code class="highlighter-rouge">multi-s2s</code>: As <code class="highlighter-rouge">s2s</code>, but uses two or more encoders allowing multi-source
+neural machine translation.</li>
+  <li><code class="highlighter-rouge">multi-transformer</code>: As <code class="highlighter-rouge">transformer</code>, but uses multiple encoders.</li>
+  <li><code class="highlighter-rouge">amun</code>: A model equivalent to Nematus models unless layer normalization is
+used. Can be decoded with Amun as <em>nematus</em> model type.</li>
+  <li><code class="highlighter-rouge">nematus</code>: A model type developed for decoding deep RNN-based encoder-decoder
+models created by the Edinburgh MT group for WMT 2017 using Nematus toolkit.
+Can be decoded with Amun as <em>nematus2</em> model type.</li>
+  <li><code class="highlighter-rouge">lm</code>: An RNN language model.</li>
+  <li><code class="highlighter-rouge">lm-transformer</code>: An transformer-based language model.</li>
+</ul>
+
+<h2 id="installation">Installation</h2>
+
+<p>Clone a fresh copy from github:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/marian-nmt/marian
+</code></pre></div></div>
+
+<p>The project is a standard CMake out-of-source build:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd marian
+mkdir build
+cd build
+cmake ..
+make -j4
+</code></pre></div></div>
+
+<p>The complete list of compilation options in the form of CMake flags can be
+obtained by running <code class="highlighter-rouge">cmake -LH -N</code> or <code class="highlighter-rouge">cmake -LAH -N</code> from the <code class="highlighter-rouge">build</code>
+directory after running <code class="highlighter-rouge">cmake ..</code> first.</p>
+
+<h3 id="ubuntu-packages">Ubuntu packages</h3>
+
+<p>Assuming a fresh Ubuntu LTS installation with CUDA, the following packages need
+to be installed to compile with all features, including the web server,
+built-in SentencePiece and TCMalloc support:git cmake3 build-essential libboost-all-dev</p>
+
+<ul>
+  <li>
+    <p>Ubuntu 18.04 + CUDA 9.2 (defaults are gcc 7.3.0, Boost 1.65):</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install git cmake build-essential libboost-all-dev libprotobuf10 protobuf-compiler libprotobuf-dev openssl libssl-dev libgoogle-perftools-dev
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Ubuntu 16.04 + CUDA 9.2 (gcc 5.4.0, Boost 1.58):</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install git cmake build-essential libboost-all-dev zlib1g-dev libprotobuf9v5 protobuf-compiler libprotobuf-dev openssl libssl-dev libgoogle-perftools-dev
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Ubuntu 14.04 + CUDA 8.0 (gcc 4.8.4, Boost 1.54)</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install git cmake3 build-essential libboost-all-dev libprotobuf8 protobuf-compiler libprotobuf-dev openssl libssl-dev libgoogle-perftools-dev
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Please see the <a href="https://github.com/marian-nmt/marian-dev/issues/526">GCC/CUDA compatibility
+table</a> if you experience
+compilation issues with different versions of GCC and CUDA.</p>
+
+<h3 id="static-compilation">Static compilation</h3>
+
+<p>Marian will be compiled statically if the flag <code class="highlighter-rouge">USE_STATIC_LIBS</code> is set:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd build
+cmake .. -DUSE_STATIC_LIBS=on
+make -j4
+</code></pre></div></div>
+
+<h3 id="custom-boost">Custom Boost</h3>
+
+<p>Download, compile and install Boost:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://dl.bintray.com/boostorg/release/1.67.0/source/boost_1_67_0.tar.gz
+tar zxvf boost_1_67_0.tar.gz
+cd boost_1_67_0
+./bootstrap.sh
+./b2 -j16 --prefix=$(pwd) --libdir=$(pwd)/lib64 --layout=system link=static install
+</code></pre></div></div>
+
+<p>If Boost can not be compiled on your machine because an error like this occurs:
+<em>boost error “none” is not a known value of feature &lt;optimization&gt;</em>, you may
+try adding <code class="highlighter-rouge">--ignore-site-config</code> to the <code class="highlighter-rouge">./b2</code> command.</p>
+
+<p>To compile Marian training framework with your custom Boost installation:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /path/to/marian-dev
+mkdir build
+cd build
+cmake .. -DBOOST_ROOT=/path/to/boost_1_67_0
+make -j4
+</code></pre></div></div>
+
+<p>Tested on Ubuntu 16.04.3 LTS.</p>
+
+<h3 id="non-default-cuda">Non-default CUDA</h3>
+
+<p>Specify the path to your CUDA root directory via CMake:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /path/to/marian-dev
+mkdir build
+cd build
+cmake .. -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-9.1
+make -j4
+</code></pre></div></div>
+
+<h3 id="cpu-version">CPU version</h3>
+
+<p>Marian CPU version requires <a href="https://software.intel.com/en-us/mkl">Intel MKL</a> or
+<a href="https://www.openblas.net/">OpenBLAS</a>. Both are free, but MKL is not
+open-sourced. Intel MKL is strongly recommended as it is faster. On Ubuntu
+16.04 it can be installed using the following steps:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB
+sudo apt-key add GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB
+sudo sh -c 'echo deb https://apt.repos.intel.com/mkl all main &gt; /etc/apt/sources.list.d/intel-mkl.list'
+sudo apt-get update
+sudo apt-get install intel-mkl-64bit-2019.4-XYZ
+</code></pre></div></div>
+
+<p>Where <em>XYZ</em> is the revision number.</p>
+
+<p>A CPU build can be enabled by adding <code class="highlighter-rouge">-DCOMPILE_CPU=on</code> to the CMake command.</p>
+
+<h3 id="sentencepiece">SentencePiece</h3>
+
+<p>Compilation with SentencePiece that is built-it in Marian v1.6.2+ can be
+enabled by adding <code class="highlighter-rouge">-DUSE_SENTENCEPIECE=on</code> to the CMake command and requires
+the Protobuf library.  On Ubuntu, you would need to install a couple of
+packages:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Ubuntu 14.04 LTS (Trusty Tahr):
+sudo apt-get install libprotobuf8 protobuf-compiler libprotobuf-dev
+
+# Ubuntu 16.04 LTS (Xenial Xerus):
+sudo apt-get install libprotobuf9v5 protobuf-compiler libprotobuf-dev
+
+# Ubuntu 17.10 (Artful Aardvark) and Later:
+sudo apt-get install libprotobuf10 protobuf-compiler libprotobuf-dev
+</code></pre></div></div>
+
+<p>You may also compile Protobuf from source. For Ubuntu 16.04 LTS, version 2.6.1
+(or possibly newer) works:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://github.com/protocolbuffers/protobuf/releases/download/v2.6.1/protobuf-cpp-2.6.1.zip
+unzip protobuf-cpp-2.6.1.zip
+cd protobuf-2.6.1
+./autogen.sh
+./configure --prefix $(pwd)
+make -j4
+make install
+</code></pre></div></div>
+
+<p>and set the following CMake flags in Marian compilation:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir build
+cd build
+cmake .. -DUSE_SENTENCEPIECE=on \
+    -DPROTOBUF_LIBRARY=/path/to/protobuf-2.6.1/lib/libprotobuf.so \
+    -DPROTOBUF_INCLUDE_DIR=/path/to/protobuf-2.6.1/include \
+    -DPROTOBUF_PROTOC_EXECUTABLE=/path/to/protobuf-2.6.1/bin/protoc
+</code></pre></div></div>
+
+<p>For more details see the documentation in the SentencePiece repo:
+https://github.com/marian-nmt/sentencepiece#c-from-source</p>
+
+<h2 id="training">Training</h2>
+
+<p>For training NMT models, you want to use <code class="highlighter-rouge">marian</code> command.  Assuming <code class="highlighter-rouge">corpus.en</code>
+and <code class="highlighter-rouge">corpus.ro</code> are corresponding and preprocessed files of a English-Romanian
+parallel corpus, the following command will create a Nematus-compatible neural
+machine translation model:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./build/marian \
+    --train-sets corpus.en corpus.ro \
+    --vocabs vocab.en vocab.ro \
+    --model model.npz
+</code></pre></div></div>
+
+<p>Command options can be also specified in a configuration file in YAML format:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># config.yml</span>
+<span class="na">train-sets</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">corpus.en</span>
+  <span class="pi">-</span> <span class="s">corpus.ro</span>
+<span class="na">vocabs</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">vocab.en</span>
+  <span class="pi">-</span> <span class="s">vocab.ro</span>
+<span class="na">model</span><span class="pi">:</span> <span class="s">model.npz</span>
+</code></pre></div></div>
+
+<p>which simplifies the command to:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./build/marian -c config.yml
+</code></pre></div></div>
+
+<p>Command-line options overwrite options stored in the configuration file.</p>
+
+<h3 id="multi-gpu-training">Multi-GPU training</h3>
+
+<p>For multi-GPU training you only need to specify the device ids of the GPUs you
+want to use for training (this also works with most other binaries) as
+<code class="highlighter-rouge">--devices 0 1 2 3</code> for training on four GPUs. There is no automatic detection
+of GPUs for now.</p>
+
+<p>By default, this will use asynchronous SGD (or rather ADAM). For the deeper
+models and the transformer model, we found async SGD to be unreliable and you
+may want to use a synchronous SGD variant by setting <code class="highlighter-rouge">--sync-sgd</code>.</p>
+
+<p>For asynchronous SGD, the mini-batch size is used locally, i.e. <code class="highlighter-rouge">--mini-batch
+64</code> means 64 sentences per GPU worker.</p>
+
+<p>For synchronous SGD, the mini-batch size is used globally and will be divided
+across the number of workers. This means that for synchronous SGD the effective
+mini-batch can be set N times larger for N GPUs. A mini-batch size of
+<code class="highlighter-rouge">--mini-batch 256</code> will mean a mini-batch of 64 per worker if four GPUs are
+used. This choice makes sense when you realize that synchronous SGD is
+essentially working like a single GPU training process with N times more memory.
+Larger mini-batches in a synchronous setting result in quite stable training.</p>
+
+<h3 id="workspace-memory">Workspace memory</h3>
+
+<p>The choice of workspace memory, mini-batch size and max-length is quite involved
+and depends on the type of model, the available GPU memory, the number of GPUs,
+a number of other parameters like the chosen optimization algorithm, and the
+average or maximum sentence length in your training corpus (which you should
+know!).</p>
+
+<p>The option <code class="highlighter-rouge">--workspace</code> sets the size of the memory available for the forward
+and backward step of the training procedure. This does not include model size
+and optimizer parameters that are allocated outsize workspace. Hence you cannot
+allocate all GPU memory to workspace. If you are not happy with default values
+this is a trial and error process.</p>
+
+<p>Setting <code class="highlighter-rouge">--mini-batch 64 --max-length 100</code> will generate batches that contain
+always 64 sentences (or less if the corpus is smaller) of up to a length of 100
+tokens. Sentences longer than that are filtered out. Marian will grow workspace
+memory if required and potentially exceed available memory, resulting in a
+crash. Workspace memory is always rounded to multiples of 512 MB.</p>
+
+<p><code class="highlighter-rouge">--mini-batch-fit</code> overrides the specified mini-batch size and automatically
+chooses the largest mini-batch for a given sentence length that fits the
+specified memory. When <code class="highlighter-rouge">--mini-batch-fit</code> is set, memory requirements are
+guaranteed to fit into the specified workspace. Choosing a too small workspace
+will result in small mini-batches which can prohibit learning.</p>
+
+<h4 id="my-rules-of-thumb">My rules of thumb</h4>
+
+<p>For shallow models I usually set the working memory to values between 3500 and
+6000 (MB), e.g.  <code class="highlighter-rouge">--workspace 5500</code> and then use <code class="highlighter-rouge">--mini-batch-fit</code> which
+automatically tries to make the best use of the specified memory size,
+mini-batch size and sentence length.</p>
+
+<p>For very deep models, I first set all other parameters like <code class="highlighter-rouge">--max-length 100</code>,
+model type, depth etc.  Next I use <code class="highlighter-rouge">--mini-batch-fit</code> and try to max out
+<code class="highlighter-rouge">--workspace</code> until I get a crash due to insufficient memory. I then revert to
+the last workspace size that did not crash. Since setting <code class="highlighter-rouge">--mini-batch-fit</code>
+guarantees that memory will not grow during training due to batch-size this
+should result in a stable training run and maximal batch size.</p>
+
+<h3 id="validation">Validation</h3>
+
+<p>It is useful to monitor the performance of your model during training on
+held-out data. Just provide <code class="highlighter-rouge">--valid valid.src valid.trg</code> for that. By default
+this provide sentence-wise normalized cross-entropy scores for the validation
+set every 10,000 iterations.  You can change the validation frequency to, say
+5000, with <code class="highlighter-rouge">--valid-freq 5000</code> and the display frequency to 500 with
+<code class="highlighter-rouge">--disp-freq 500</code>.</p>
+
+<p><strong>Attention:</strong> the validation set needs to have been preprocessed in exactly the
+same manner as your training data.</p>
+
+<p>A minimum example of how to validate the model using cross-entropy and BLEU
+score:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./build/marian \
+    --train-sets corpus.en corpus.ro \
+    --vocabs vocab.en vocab.ro \
+    --model model.npz \
+    --valid-set dev.en dev.ro \
+    --valid-metrics cross-entropy translation \
+    --valid-script-path validate.sh
+</code></pre></div></div>
+
+<p>where <code class="highlighter-rouge">validate.sh</code> is a bash script, which takes the file with output
+translation of <code class="highlighter-rouge">dev.en</code> as the first argument (i.e. <code class="highlighter-rouge">$1</code>) and returns the BLEU
+score, for example:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># validate.sh</span>
+./postprocess.sh &lt; <span class="nv">$1</span> <span class="o">&gt;</span> file.out 2&gt;/dev/null
+./moses-scripts/scripts/generic/multi-bleu-detok.perl file.ref &lt; file.out 2&gt;/dev/null <span class="se">\</span>
+    | <span class="nb">sed</span> <span class="nt">-r</span> <span class="s1">'s/BLEU = ([0-9.]+),.*/\1/'</span>
+</code></pre></div></div>
+
+<h4 id="metrics">Metrics</h4>
+
+<ul>
+  <li><code class="highlighter-rouge">cross-entropy</code> - computes the sentence-wise normalized cross-entropy score.</li>
+  <li><code class="highlighter-rouge">ce-mean-words</code> - computes the mean word cross-entropy score.</li>
+  <li><code class="highlighter-rouge">valid-script</code> - executes the script specified with <code class="highlighter-rouge">--valid-script-path</code>.
+The script is expected to return a score as a floating-point number.</li>
+  <li><code class="highlighter-rouge">translation</code> - executes the script specified with <code class="highlighter-rouge">--valid-script-path</code>
+passing the name of the file with translation of the source validation set as
+the first argument (e.g. <code class="highlighter-rouge">$1</code> in Bash script, <code class="highlighter-rouge">sys.argv[1]</code> in Python, etc.).
+The script is expected to return a score as a floating-point number.</li>
+  <li><code class="highlighter-rouge">bleu</code> - computes BLEU score on raw validation sets. Those are usually
+tokenized and BPE-segmented, so the score is overestimated, and should never
+be used to report your BLEU scores in a research paper.</li>
+  <li><code class="highlighter-rouge">bleu-detok</code> - computes BLEU score on postprocessed validation sets. Requires
+SentencePiece and Marian v1.6.2+.</li>
+</ul>
+
+<h4 id="early-stopping">Early stopping</h4>
+
+<p>Early stopping is a common technique for deciding when to stop training the
+model based on a heuristic involving a validation set.</p>
+
+<p>By default we use early stopping with patience of 10, i.e. <code class="highlighter-rouge">--early-stopping
+10</code>. This means that training will finish if the first specified metric in
+<code class="highlighter-rouge">--valid-metrics</code> did not improve (stalled) for 10 consecutive validation
+steps. Usually this will signal convergence or — if the scores get worse with
+later validation steps — potential overfitting.</p>
+
+<h3 id="regularization">Regularization</h3>
+
+<p>Marian has several regularization techniques implemented that help to prevent
+model overfitting, such as dropouts (<a href="https://arxiv.org/abs/1512.05287">Gal and Ghahramani,
+2016</a>), label smoothing (<a href="https://arxiv.org/abs/1706.03762">Vaswani et al.
+2017</a>), and <a href="https://en.wikipedia.org/wiki/Exponential_smoothing">exponential
+smoothing</a> for network
+parameters.</p>
+
+<h4 id="dropouts">Dropouts</h4>
+
+<p>Depending on the model type, Marian support multiple types of dropout.  For
+RNN-based models it supports the <code class="highlighter-rouge">--dropout-rnn 0.2</code> (the numeric value of 0.2
+is only provided as an example) option which uses variational dropout on all
+RNN inputs and recursive states.</p>
+
+<p>Options <code class="highlighter-rouge">--dropout-src</code> and <code class="highlighter-rouge">--dropout-trg</code> set the probability to drop out
+entire source or target word positions, respectively. These dropouts are useful
+for monolingual tasks.</p>
+
+<p>For the transformer model the equivalent of <code class="highlighter-rouge">--dropout-rnn 0.2</code> is
+<code class="highlighter-rouge">--transformer-dropout 0.2</code>. There are also two other dropouts for transformer
+attention and transformer filter.</p>
+
+<h3 id="learning-rate-scheduling">Learning rate scheduling</h3>
+
+<p>Manipulation of learning rate during the training may result in better
+convergence and higher-quality translations.</p>
+
+<p>Marian supports various strategies for decaying learning rate
+(<code class="highlighter-rouge">--lr-decay-strategy</code> option).  Decay factor can be specified with
+<code class="highlighter-rouge">--lr-decay</code>.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">epoch</code>: learning rate will be decayed after each epoch starting from epoch
+specified with <code class="highlighter-rouge">--lr-decay-start</code></li>
+  <li><code class="highlighter-rouge">batches</code>: learning rate will be decayed every <code class="highlighter-rouge">--lr-decay-freq</code> batches
+starting after the batch specified with <code class="highlighter-rouge">--lr-decay-start</code></li>
+  <li><code class="highlighter-rouge">stalled</code>: learning rate will be decayed every time when the first validation
+metric does not improve for <code class="highlighter-rouge">--lr-decay-start</code> consecutive validation steps</li>
+  <li><code class="highlighter-rouge">epoch+stalled</code>: learning rate will be decayed after the specified number of
+epochs or stalled validation steps, whichever comes first. The option
+<code class="highlighter-rouge">--lr-decay-start</code> takes two numbers: for epochs and stalled validation
+steps, respectively</li>
+  <li><code class="highlighter-rouge">batches+stalled</code>: as <code class="highlighter-rouge">epoch+stalled</code>, but the total number of batches is
+taken into account instead of epochs</li>
+</ul>
+
+<p>Other learning rate schedules supported by Marian:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">--lr-warmup</code>: learning rate will be increased linearly for the specific
+number of first updates. The start value for learning rate warmup can be
+specified with <code class="highlighter-rouge">--lr-warmup-start-rate</code>.</li>
+  <li><code class="highlighter-rouge">--lr-decay-inv-sqrt</code>: learning rate will be decreased at <code class="highlighter-rouge">n / sqrt(no.
+updates)</code> starting at <code class="highlighter-rouge">n</code>-th update</li>
+</ul>
+
+<h3 id="data-weighting">Data weighting</h3>
+
+<p>Data weighting is commonly used as a domain adaptation technique, which weights
+each data item according to its proximity to the in-domain data.  Marian
+supports sentence and word-level data weighting strategies.</p>
+
+<p>Data weighting requires providing a file with weights.  In sentence weighting
+strategy, each line of that file contains a real-value weight:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./build/marian \
+    -t corpus.{en,de} -v vocab.{en,de} -m model.npz \
+    --data-weighting-type sentence --data-weighting weights.txt
+</code></pre></div></div>
+
+<p>To use word weighting you should choose <code class="highlighter-rouge">--data-weighting-type word</code>, and each
+line of the weight file should contain as many real-value weights as there are
+words in the corresponding target training sentence.</p>
+
+<h3 id="custom-embeddings">Custom embeddings</h3>
+
+<p>Marian can handle custom embedding vectors trained with
+<a href="https://github.com/dav/word2vec">word2vec</a> or another tool:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./build/marian \
+    -t corpus.{en,de} -v vocab.{en,de} -m model.npz \
+    --embedding-vectors vectors.{en,de} --dim-emb 400
+</code></pre></div></div>
+
+<p>Embedding vectors should be provided in a file in a format similar to the
+word2vec format, with word tokens replaced with words IDs from the relevant
+vocabulary.</p>
+
+<p>Pre-trained vectors need to share the same vocabulary as your training data,
+and ideally should contain vectors for <code class="highlighter-rouge">&lt;unk&gt;</code> and <code class="highlighter-rouge">&lt;/s&gt;</code> tokens. The easiest
+way to achieve this is to prepare the training data for word2vec w.r.t your
+vocabularies using <a class="github-link" href="https://github.com/marian-nmt/marian-dev/tree/master/scripts/embeddings/prepare_corpus.py" target="_blank"><code class="highlighter-rogue">marian-dev/scripts/embeddings/prepare_corpus.py</code></a>. Vectors can be prepared or
+trained w.r.t to vocabulary using <a class="github-link" href="https://github.com/marian-nmt/marian-dev/tree/master/scripts/embeddings/process_word2vec.py" target="_blank"><code class="highlighter-rogue">marian-dev/scripts/embeddings/process_word2vec.py</code></a>.</p>
+
+<p>Other options for managing embedding vectors:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">--embedding-fix-src</code> fixes source embeddings in all encoders</li>
+  <li><code class="highlighter-rouge">--embedding-fix-trg</code> fixes target embeddings in all decoders</li>
+  <li><code class="highlighter-rouge">--embedding-normalization</code> normalizes vector values into [-1,1] range</li>
+</ul>
+
+<h3 id="guided-alignment">Guided alignment</h3>
+
+<p>Training with guided alignment may improve alignments produced by RNN models
+(<code class="highlighter-rouge">--type amun</code> or <code class="highlighter-rouge">s2s</code>) and is mandatory to obtain useful word alignments from
+Transformers (<code class="highlighter-rouge">--type transformer</code>).  Guided alignment training requires
+providing a file with pre-calculated word alignments for the entire training
+corpus, for example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./build/marian \
+    -t corpus.{en,de} -v vocab.{en,de} -m model.npz \
+    --guided-alignment corpus.align
+</code></pre></div></div>
+
+<p>The file <em>corpus.align</em> from the example can be generated using the
+<a href="https://github.com/clab/fast_align">fast_align</a> word aligner (please refer to
+their repository for installation instructions):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>paste corpus.en corpus.de | sed 's/\t/ ||| /g' &gt; corpus.en-de
+fast_align/build/fast_align -vdo -i corpus.en-de &gt; forward.align
+fast_align/build/fast_align -vdor -i corpus.en-de &gt; reverse.align
+fast_align/build/atools -c grow-diag-final -i forward.align -j reverse.align &gt; corpus.align
+</code></pre></div></div>
+
+<p>or a RNN model and <code class="highlighter-rouge">marian-scorer</code>, for example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./build/marian-scorer -m model.npz -v vocab.{en,de} -t corpus.en corpus.de &gt; corpus.align
+</code></pre></div></div>
+
+<p>Marian has a few more options related to guided alignment training:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">--guided-alignment-cost</code> - cost type for guided alignment</li>
+  <li><code class="highlighter-rouge">--guided-alignment-weight</code> - weight for guided alignment cost</li>
+  <li><code class="highlighter-rouge">--transformer-guided-alignment-layer</code> - number of layer to use for guided
+alignment training; only for training transformer models</li>
+</ul>
+
+<h3 id="multi-node-training">Multi-node training</h3>
+
+<p>Multi-node training requires an MPI installation with <code class="highlighter-rouge">MPI_THREAD_MULTIPLE</code> set to
+<code class="highlighter-rouge">true</code>. A newer version (e.g. OpenMPI 2.X) is highly recommended due to intense
+use of multi-threading.</p>
+
+<p>Command-line options specific to multi-node training:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">--multi-node</code> - enable multi-node.</li>
+  <li><code class="highlighter-rouge">--devices</code> - set nodes and devices, e.g. <code class="highlighter-rouge">0: 0 1 1: 0</code> means that node 0 has
+2 GPUs, with IDs 0 and 1, and node 1 has 1 GPU, with ID 0.</li>
+  <li><code class="highlighter-rouge">--multi-node-overlap</code> - overlap communication with computations, default:
+enabled.</li>
+</ul>
+
+<p>To start multi-node training, except compiling Marian with MPI, you need to
+create a host file and ensure that the nodes can ssh to each other without a
+password. Then you may use the command similar to:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mpirun -n 2 --hostfile hosts_mpi -tag-output \
+    ./build/marian --devices 0:0 1 1:0 \
+        -m model.npz -t corpus.src corpus.trg -v vocab.src.yml vocab.trg.yml \
+        --multi-node --multi-node-overlap 0
+</code></pre></div></div>
+
+<p>where the host file <code class="highlighter-rouge">hosts_mpi</code> contains on each line a host on which you want
+to run Marian.</p>
+
+<p>Note that multi-node currently only converges properly with gradient dropping,
+which requires layer normalization. Ideally, add the following line to your run
+script:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--layer-normalization --dropout-rnn 0.2 --dropout-src 0.1 --dropout-trg 0.1
+</code></pre></div></div>
+
+<p><strong>Warning</strong>: The API described above refers to the experimental feature
+introduced in version 1.4.0. It is depreciated at least since version 1.7.0.
+The newest multi-node API is not documented yet.</p>
+
+<h2 id="translation">Translation</h2>
+
+<p>All models trained with <code class="highlighter-rouge">marian</code> can be decoded with <code class="highlighter-rouge">marian-decoder</code> and
+<code class="highlighter-rouge">marian-server</code> command.  Only models of type <code class="highlighter-rouge">amun</code> and specific deep models of type
+<code class="highlighter-rouge">nematus</code> can be used with the <code class="highlighter-rouge">amun</code> tool.</p>
+
+<h3 id="marian-decoder">Marian decoder</h3>
+
+<p>Currently, <code class="highlighter-rouge">marian-decoder</code> supports only translation on GPUs. A CPU version
+of Marian is planned.</p>
+
+<p>Basic usage:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./build/marian-decoder -m model.npz -v vocab.en vocab.ro &lt; input.txt
+</code></pre></div></div>
+
+<h4 id="n-best-lists">N-best lists</h4>
+
+<p>To generate n-best list with, say 10, best translations for each input
+sentence, add <code class="highlighter-rouge">--n-best</code> and <code class="highlighter-rouge">--beam-size </code>10` to the list of command-line
+arguments:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./build/marian-decoder -m model.npz -v vocab.en vocab.ro --beam-size 10 --n-best &lt; input.txt
+</code></pre></div></div>
+
+<h4 id="ensembles">Ensembles</h4>
+
+<p>Models of <strong>different</strong> types and architectures can be ensembled as long as they
+use common vocabularies:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./build/marian-decoder \
+    --models model1.npz model2.npz model3.npz \
+    --weights 0.6 0.2 0.2 \
+    --vocabs vocab.en vocab.ro &lt; input.txt
+</code></pre></div></div>
+
+<p>Weights are optional and set to 1.0 by default if omitted.</p>
+
+<h3 id="batched-translation">Batched translation</h3>
+
+<p>Batched translation generates translation for whole mini-batches and
+significantly increases translation speed (roughly by a factor of 10 or more).
+We recommend to use the following options to enable batched translation:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./marian-decoder -m model.npz -v vocab.src.yml vocab.trg.yml -b 6 --normalize 0.6 \
+    --mini-batch 64 --maxi-batch-sort src --maxi-batch 100 -w 2500
+</code></pre></div></div>
+
+<p>This does a number of things:</p>
+<ul>
+  <li>Firstly, it enables translation with a mini-batch size of 64, i.e.
+translating 64 sentences at once, with a beam-size of 6.</li>
+  <li>It preloads 100 maxi-batches and sorts them according to source sentence
+length, this allows for better packing of the batch and increases translation
+speed quite a bit.</li>
+  <li>We also added an option to use a length-normalization weight of 0.6 (this
+usually increases BLEU a bit).</li>
+  <li>The working memory is set to 2500 MB. The default working memory is 512 MB
+and Marian will increase it to match to requirements during translation, but
+pre-allocating memory makes it usually a bit faster.</li>
+</ul>
+
+<p>To give you an idea, how much faster batched translation is compared to
+sentence-by-sentence translation we have collected a few numbers. Below we have
+compiled the time it takes to translate the English-German WMT2013 test set
+with 3000 sentences using 4 Volta GPUs on AWS.</p>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>System</th>
+      <th style="text-align: right">Single</th>
+      <th style="text-align: right">Batched</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Nematus-style Shallow RNN</td>
+      <td style="text-align: right">82.7s</td>
+      <td style="text-align: right">4.3s</td>
+    </tr>
+    <tr>
+      <td>Nematus-style Deep RNN</td>
+      <td style="text-align: right">148.5s</td>
+      <td style="text-align: right">5.9s</td>
+    </tr>
+    <tr>
+      <td>Google Transformer</td>
+      <td style="text-align: right">201.9s</td>
+      <td style="text-align: right">19.2s</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="attention-output">Attention output</h3>
+
+<p><code class="highlighter-rouge">marian-decoder</code> and <code class="highlighter-rouge">marian-scorer</code> can produce attention output or word
+alignments when the <code class="highlighter-rouge">--alignment</code> option is used with one of the following
+values:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">soft</code>: Alignment weights for all words including EOS tokens. Sets of source
+token weights for target tokens are separated by a whitespace, source token
+weights are separated by a comma.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "now everyone knows" | ./marian-decoder -c config.yml --alignment soft
+jetzt weiß jeder ||| 0.917065,0.0218936,0.0405725,0.0204688 0.00803049,0.0954254,0.853882,0.0426626 \
+  0.0294334,0.794184,0.00511072,0.171272 0.00743875,0.0147502,0.201069,0.776743
+</code></pre></div>    </div>
+  </li>
+  <li><code class="highlighter-rouge">hard</code> or empty: Word alignments for each target token in the form of Moses
+alignments, i.e. pairs of source and target tokens.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "now everyone knows" | ./marian-decoder -c config.yml --alignment
+jetzt weiß jeder ||| 0-0 1-2 2-1 3-3
+</code></pre></div>    </div>
+  </li>
+  <li>A value in the range 0.0-1.0: Word alignments are generated if the alignment
+weight for a target and source token is higher than or equal to the specified
+value.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "now everyone knows" | ./marian-decoder -c config.yml --alignment 0.1
+jetzt weiß jeder ||| 0-0 1-2 2-1 2-3 3-2 3-3
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h4 id="word-alignments-from-transformer">Word alignments from Transformer</h4>
+
+<p>The transformer has basically 6x8 different alignment matrices, and in theory
+none of these has to be very useful for word alignment purposes.  We recommend
+training model with guided alignments first (<code class="highlighter-rouge">--guided-alignment</code>) so that the
+model can learn word alignments in one of its heads.</p>
+
+<h3 id="lexical-shortlists">Lexical shortlists</h3>
+
+<p>With a lexical shortlist the output vocabulary is restricted to a small subset
+of translation candidates, which can improve CPU-bound efficiency. A shortlist
+file, say <em>lex.s2t</em>, can be passed to the decoder using the <code class="highlighter-rouge">--shortlist</code>
+option, for example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./build/marian-decoder -m model.npz -v vocab.en vocab.de \
+    --shortlist lex.s2t 100 75 &lt; input.txt
+</code></pre></div></div>
+
+<p>The second and third arguments are optional, and mean that the output
+vocabulary will be restricted to the 100 most frequent target words and the 75
+most probable translations for every source word in a batch.</p>
+
+<p>Lexical shortlist files can be generated with <a class="github-link" href="https://github.com/marian-nmt/marian-dev/tree/master/scripts/shortlist/generate_shortlists.pl" target="_blank"><code class="highlighter-rogue">marian-dev/scripts/shortlist/generate_shortlists.pl</code></a>, for example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>perl generate_shortlists.pl --bindir /path/to/bin -s corpus.en -t corpus.de
+</code></pre></div></div>
+
+<p>where <em>corpus.en</em> and <em>corpus.de</em> are preprocessed training data, and the <code class="highlighter-rouge">bin</code>
+directory contains <code class="highlighter-rouge">fast_align</code> and <code class="highlighter-rouge">atools</code> from
+<a href="https://github.com/clab/fast_align">fast_align</a> and <code class="highlighter-rouge">extract_lex</code> from
+<a href="https://github.com/marian-nmt/extract-lex">extract-lex</a>.</p>
+
+<h3 id="web-server">Web server</h3>
+
+<p>The <code class="highlighter-rouge">marian-server</code> command starts a web-socket server providing CPU and GPU
+translation service that can be requested by a client program written in Python
+or any other programming language.  The server uses the same command-line
+options as <code class="highlighter-rouge">marian-decoder</code>.  The only addition is <code class="highlighter-rouge">--port</code> option, which
+specifies the port number:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./build/marian-server --port 8080 -m model.npz -v vocab.en vocab.ro
+</code></pre></div></div>
+
+<p>An example client written in Python is <a class="github-link" href="https://github.com/marian-nmt/marian-dev/tree/master/scripts/server/client_example.py" target="_blank"><code class="highlighter-rogue">marian-dev/scripts/server/client_example.py</code></a>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./scripts/server/client_example.py -p 8080 &lt; input.txt
+</code></pre></div></div>
+
+<h3 id="nematus-models">Nematus models</h3>
+
+<p>Only specific types of models trained with Nematus, for example the <a href="http://data.statmt.org/wmt17_systems/">Edinburgh WMT17
+deep models</a> can be decoded with
+<code class="highlighter-rouge">marian-decoder</code>.  As such models do not include Marian-specific parameters,
+all parameters related to the model architecture have to be set with
+command-line options.</p>
+
+<p>For example, for the <a href="http://data.statmt.org/wmt17_systems/en-de/">de-en model</a>
+this would be:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./build/marian-decoder \
+    --type nematus \
+    --models model/en-de/model.npz \
+    --vocabs model/en-de/vocab.en.json model/en-de/vocab.de.json \
+    --dim-vocabs 51100 74383 \
+    --enc-depth 1 \
+    --enc-cell-depth 4 \
+    --enc-type bidirectional \
+    --dec-depth 1 \
+    --dec-cell-base-depth 8 \
+    --dec-cell-high-depth 1 \
+    --dec-cell gru-nematus --enc-cell gru-nematus \
+    --tied-embeddings true \
+    --layer-normalization true
+</code></pre></div></div>
+
+<p>Alternatively, the parameters can be added into the model <em>.npz</em> file based on
+the Nematus <em>.json</em> file using the script: <a class="github-link" href="https://github.com/marian-nmt/marian-dev/tree/master/scripts/contrib/inject_model_params.py" target="_blank"><code class="highlighter-rogue">marian-dev/scripts/contrib/inject_model_params.py</code></a>, e.g.:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python inject_model_params.py -m model.npz -j model.npz.json
+</code></pre></div></div>
+
+<p>Some models released by Edinburgh might require setting other parameters as
+well, for instance <code class="highlighter-rouge">--dim-emb 500</code>.</p>
+
+<p>We do not recommend training models of type <code class="highlighter-rouge">nematus</code> with Marian. It is much
+more efficient to train <code class="highlighter-rouge">s2s</code> models, which provide the same model architecture
+(except layer normalization), more features, and faster training.</p>
+
+<h3 id="amun">Amun</h3>
+
+<p>Amun is a translation tool for <code class="highlighter-rouge">amun</code> and <code class="highlighter-rouge">nematus</code> model types only and is now
+available from the separate repository: <a class="github-link" href="https://github.com/marian-nmt/amun/tree/master/" target="_blank"><code class="highlighter-rogue">amun/</code></a>.  Translation
+with Amun can be performed on GPU or CPU or both.</p>
+
+<p>Basic usage:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./marian/build/amun -m model.npz -s vocab.en -t vocab.ro &lt;&lt;&lt; "This is a test ."
+</code></pre></div></div>
+
+<h2 id="scorer">Scorer</h2>
+
+<p>The <code class="highlighter-rouge">marian-scorer</code> tool is used for scoring (or re-scoring) parallel sentences
+provided as plain texts in two corresponding files:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./build/marian-scorer -m model.npz -v vocab.{en,de} -t file.en file.de
+</code></pre></div></div>
+
+<p>A cross-entropy score for each sentence pair is returned by default.</p>
+
+<h3 id="scoring-n-best-lists">Scoring n-best lists</h3>
+
+<p>N-best lists can be scored using the following command:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./build/marian-scorer -m model.npz -v vocab.{en,de} \
+    -t file.en.txt file.de.nbest --n-best --n-best-feature F0
+</code></pre></div></div>
+
+<p>which add a new score into the n-best list under the feature named <em>F0</em>.</p>
+
+<h3 id="word-aligner">Word aligner</h3>
+
+<p>The scorer can be used as a word aligner that generates word alignments for a
+pair of sentences:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./build/marian-scorer -m model.npz -v vocab.{en,de} \
+    -t file.en.txt file.de.txt --alignment
+</code></pre></div></div>
+
+<p>The feature works out-of-the-box for RNN models, while Transformer models need
+to be trained with guided alignments.</p>
+
+<h3 id="summarized-scores">Summarized scores</h3>
+
+<p>The scorer can report summarized score (cross-entropy or perplexity) for an
+entire test set with option <code class="highlighter-rouge">--summary</code>.</p>
+
+<h2 id="code-documentation">Code documentation</h2>
+
+<p><a href="/docs/marian/classes.html">The code documentation for Marian toolkit</a> is
+generated using Doxygen. The newest version can be generated locally with CMake:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir -p build &amp;&amp; cd build &amp;&amp; cmake .. &amp;&amp; make doc
+</code></pre></div></div>
+
+
+            </div><!--//content-inner-->
+          </div><!--//doc-content-->
+
+          <div class="doc-sidebar hidden-xs">
+            <nav id="doc-nav"></nav>
+          </div><!--//doc-sidebar-->
+
+        </div><!--//doc-body-->
+
+      </div><!--//container-->
+    </div><!--//doc-wrapper-->
+
+    </div><!--//page-wrapper-->
+
+    <footer id="footer" class="footer text-center">
+  <div class="container">
+    <p>
+     Marian - an efficient Neural Machine Translation framework written in pure C++.</br>
+      Mainly developed at Microsoft Translator and at the University of Edinburgh.
+    </p>
+    <p><a href="https://github.com/marian-nmt/marian#marian">Marian</a> is licensed under the <a href="https://github.com/marian-nmt/marian/blob/master/LICENSE.md">MIT license</a>.</p>
+    <p><small class="copyright footnote">Based on the theme PrettyDocs designed by <a href="http://themes.3rdwavemedia.com/" targe="_blank">Xiaoying Riley</a> with modifications.</small></p>
+  </div><!--//container-->
+</footer><!--//footer-->
+
+    <!-- Main Javascript -->
+<script type="text/javascript"> localStorage.clear();</script>
+
+<script type="text/javascript" src="/assets/plugins/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/jquery-match-height/jquery.matchHeight-min.js"></script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/main.js"></script>
+<script type="text/javascript" src="/assets/js/toc.js"></script>
+
+
+  </body>
+</html>
