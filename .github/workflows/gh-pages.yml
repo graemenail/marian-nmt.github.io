@@ -6,6 +6,7 @@ on:
       - content
 
 env:
+  source: content
   SITE: live
   gcc: 7
   cuda: "11.2"
@@ -61,13 +62,10 @@ jobs:
           sudo apt-get update -y && \
           sudo apt-get install -y ccache libboost-all-dev \
             libgoogle-perftools-dev  libprotobuf-dev protobuf-compiler
-
           ccache -p
 
       - name: Install CUDA
-        run: |
-          ./scripts/ci/install_cuda_ubuntu.sh ${{ env.cuda }}
-          ls -valpsh /usr/local/
+        run: ./scripts/ci/install_cuda_ubuntu.sh ${{ env.cuda }}
 
       - name: Configure CMake
         run: |
@@ -97,6 +95,7 @@ jobs:
             ${{ runner.os }}-ccache-
 
       - name: Compile
+        if: ${{ false }}
         working-directory: marian-dev/build
         run: |
           ccache -z
@@ -104,13 +103,27 @@ jobs:
           ccache -s
 
       - name: Get Version
+        if: ${{ false }}
         working-directory: marian-dev/build
         run: |
           mkdir -p cli
           for cmd in marian marian-{decoder,server,scorer,vocab,conv}; do
-            ./${cmd} --version | tee cli/${cmd}.version
-            ./${cmd} --help | tee cli/${cmd}.md
+            # ./${cmd} --version | tee cli/${cmd}.version
+            # ./${cmd} --help | tee cli/${cmd}.md
+
+          	sed "s/<COMMAND>/${cmd}/" _template.tmp > ${cmd}.md
+          	echo "Version: " >> ${cmd}.md
+          	./${cmd} --version >> ${cmd}.md 2>&1
+          	echo "" >> ${cmd}.md
+          	./${cmd} --help 2>&1 | bash _scripts/help2markdown.sh | python _scripts/wrap_help.py >> ${cmd}.md
           done
+
+      - name: Test Update
+        run: |
+          mkdir -p marian-dev/build/cli
+          cp -v ./docs/cmd/marian-conv.md marian-dev/build/cli
+          echo "I have changed" >> marian-dev/build/cli/marian-conv.md
+
 
       - name: Upload CLI
         uses: actions/upload-artifact@v2
@@ -131,12 +144,22 @@ jobs:
       - name: Checkout website source
         uses: actions/checkout@v2
         with:
+          ref: ${{ env.source }}
           submodules: true
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7
+
+      - name: Download new CLI
+        if: needs.cli.result == 'success'
+        uses: actions/download-artifact@v2
+        with:
+          name: cli-output
+          path: docs/cmd
+
+      - run: git diff
 
       - name: Build Jekyll
         uses: limjh16/jekyll-action-ts@v2
@@ -206,10 +229,32 @@ jobs:
   deploy:
     name: Deploy to live branch
     needs: [site, api, cli]
-    if: ${{ !failure() }}  # skipped needs are fine, but failures are not
+    if: ${{ false }} && ${{ !failure() }}  # skipped needs are fine, but failures are not
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'Good to go!'
+      - name: Checkout live branch
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ env.SITE }}
+          path: live
+
+      - name: Download API
+        if: needs.api.result == 'success'  #
+        uses: actions/download-artifact@v2
+        with:
+          name: api-docs-output
+          path: api
+
+      - name: Download Jekyll
+        uses: actions/download-artifact@v2
+        with:
+          name: jekyll-output
+          path: jekyll
+
+      - name: Combine
+        run:
+          rsync jekyll/docs/docs
+
 
 
       # - name: Install
