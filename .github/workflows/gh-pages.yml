@@ -19,7 +19,8 @@ jobs:
   check_source:
       name: Check for source changes
       outputs:
-        changed: ${{ steps.check.outputs.changed }}
+        # changed: ${{ steps.check.outputs.changed }}
+        changed: true
       runs-on: ubuntu-latest
       steps:
         - name: Checkout source code
@@ -152,7 +153,9 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7
-
+# ------------------------------------------------
+# Incorporate CLI
+# ------------------------------------------------
       - name: Download new CLI
         if: needs.cli.result == 'success'
         uses: actions/download-artifact@v2
@@ -167,7 +170,7 @@ jobs:
           git diff
           git add *.md
           git status
-
+# ------------------------------------------------
       - name: Build Jekyll
         uses: limjh16/jekyll-action-ts@v2
         with:
