@@ -260,7 +260,7 @@ jobs:
       - name: Combine API
         if: needs.api.result == 'success'  #
         run:
-          rsync -a --dry-run api/ jekyll/docs/docs
+          rsync -avh --delete api/ jekyll/docs/docs
 
       - name: Reuse old API
         if: needs.api.result == 'skipped'
@@ -272,7 +272,7 @@ jobs:
       - name: Combine
         if: needs.api.result == 'skipped'
         run:
-          rsync -a --dry-run api/docs/docs jekyll/docs/docs
+          rsync -avh --delete api/docs/docs jekyll/docs/docs
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
