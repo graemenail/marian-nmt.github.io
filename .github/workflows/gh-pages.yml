@@ -5,6 +5,8 @@ on:
     branches:
       - content
 
+  workflow_dispatch:
+
 env:
   source: content
   deploy: live
@@ -37,6 +39,12 @@ jobs:
               git fetch origin ${{ env.ref }} --depth=1
               git diff --name-only ${{ env.ref }}.. | grep '^marian-dev' && \
                 echo '::set-output name=changed::true' || true
+            fi
+
+            # Always run on workflow_dispatch
+            # BUT IT SHOULD ONLY BE RUN ON SOURCE DIR!!
+            if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+              echo '::set-output name=changed::true';
             fi
 
   # ------------------------------------------------------------------
@@ -250,6 +258,7 @@ jobs:
           name: jekyll-output
           path: jekyll
 
+      # Use New API
       - name: Download API
         if: needs.api.result == 'success'  #
         uses: actions/download-artifact@v2
@@ -262,17 +271,18 @@ jobs:
         run:
           rsync -avh --delete api/ jekyll/docs/docs
 
-      - name: Reuse old API
+      # Use Current API
+      - name: Reuse current API documentation
         if: needs.api.result == 'skipped'
         uses: actions/checkout@v2
         with:
-          ref: live
+          ref: ${{ env.deploy }}
           path: api
 
       - name: Combine
         if: needs.api.result == 'skipped'
         run:
-          rsync -avh --delete api/docs/docs jekyll/docs/docs
+          rsync -avh --delete api/docs/docs/ jekyll/docs/docs
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
