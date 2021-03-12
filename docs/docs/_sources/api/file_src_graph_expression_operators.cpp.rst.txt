@@ -151,11 +151,11 @@ Functions
 
 - :ref:`exhale_function_group__graph__ops_1ga12f467ba3ef8263cd40c2bfc27e9effd`
 
-- :ref:`exhale_function_group__graph__ops__cmp_1ga9daf4bd671714273a7f84e075c2700c7`
-
 - :ref:`exhale_function_group__graph__ops__cmp_1ga3cadec94f28c90208347409178bc544d`
 
 - :ref:`exhale_function_group__graph__ops__cmp_1gabb3676f66feabc9e535ac1247334874d`
+
+- :ref:`exhale_function_group__graph__ops__cmp_1ga9daf4bd671714273a7f84e075c2700c7`
 
 - :ref:`exhale_function_group__graph__ops__activation_1ga7f39b829252ccb999f3af21c42108f75`
 
@@ -169,11 +169,11 @@ Functions
 
 - :ref:`exhale_function_group__graph__ops_1ga858c5f759093938220f00226edd02247`
 
-- :ref:`exhale_function_group__graph__ops__cmp_1ga180aa98b74e982c6d87e96f0d2773f07`
-
 - :ref:`exhale_function_group__graph__ops__cmp_1ga17cdd4cc7c3fb4c937a6c835e808a61b`
 
 - :ref:`exhale_function_group__graph__ops__cmp_1ga7d27e013c78deda690e0a2986f6af290`
+
+- :ref:`exhale_function_group__graph__ops__cmp_1ga180aa98b74e982c6d87e96f0d2773f07`
 
 - :ref:`exhale_function_group__graph__ops__mathematical_1ga828452c93bee4b92f7aa2c53b7f78dde`
 
@@ -193,11 +193,11 @@ Functions
 
 - :ref:`exhale_function_group__graph__ops__mathematical_1ga8006a9dbffbb2c5d9a3e9fdc35f01c70`
 
-- :ref:`exhale_function_group__graph__ops__cmp_1gad6dc0116a6018a167b8f2989c5b1624d`
-
 - :ref:`exhale_function_group__graph__ops__cmp_1gace72a57133457133e60beed9438db6eb`
 
 - :ref:`exhale_function_group__graph__ops__cmp_1ga568ceebf155e0a24b3f9cd9a292623c2`
+
+- :ref:`exhale_function_group__graph__ops__cmp_1gad6dc0116a6018a167b8f2989c5b1624d`
 
 - :ref:`exhale_function_group__graph__ops__arithmetic_1ga6aaf9b9fe6f3717c4319e926330f2c22`
 

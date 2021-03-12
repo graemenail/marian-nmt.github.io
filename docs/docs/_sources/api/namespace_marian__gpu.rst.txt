@@ -285,11 +285,11 @@ Functions
 
 - :ref:`exhale_function_helpers_8cu_1ae61e74ba9817f069809e5c432c03badc`
 
+- :ref:`exhale_function_algorithm_8h_1a5f04531b05b9135abd2fff92ac536831`
+
 - :ref:`exhale_function_tensor__operators_8cu_1a12016fc310c4a6286859009140919865`
 
 - :ref:`exhale_function_algorithm_8cu_1a0a07d8a401e621986dab846f8289e6be`
-
-- :ref:`exhale_function_algorithm_8h_1a5f04531b05b9135abd2fff92ac536831`
 
 - :ref:`exhale_function_gpu_2prod_8cpp_1af1f337e95e06f8828d8ad77c58af7b10`
 

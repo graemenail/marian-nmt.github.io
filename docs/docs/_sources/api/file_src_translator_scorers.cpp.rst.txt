@@ -55,7 +55,7 @@ Functions
 
 - :ref:`exhale_function_namespacemarian_1ae9cc1ad44e927194553299899e743e7a`
 
-- :ref:`exhale_function_namespacemarian_1a4df64a8111938f1a6a3d2cdd276709a5`
-
 - :ref:`exhale_function_namespacemarian_1ad245b388788aca495683827d22594295`
+
+- :ref:`exhale_function_namespacemarian_1a4df64a8111938f1a6a3d2cdd276709a5`
 

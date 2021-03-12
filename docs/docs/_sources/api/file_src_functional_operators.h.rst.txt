@@ -78,12 +78,6 @@ Functions
 ---------
 
 
-- :ref:`exhale_function_operators_8h_1aff3048762f56281070e3cde7c5a29584`
-
-- :ref:`exhale_function_operators_8h_1aecae867dd318cdb7a19b3ef8dc07d715`
-
-- :ref:`exhale_function_operators_8h_1a98dbdf8dc6fb128bfa483cab6d43cc91`
-
 - :ref:`exhale_function_operators_8h_1a0cf8ff4b84d93583253f7caa3ff6610e`
 
 - :ref:`exhale_function_operators_8h_1adf69ce7da3e675522689b88091c7142b`
@@ -95,6 +89,8 @@ Functions
 - :ref:`exhale_function_operators_8h_1a8f4d08e7299efd9889642727755e004e`
 
 - :ref:`exhale_function_operators_8h_1af50d15072ac6a96498a53cc80cbcf742`
+
+- :ref:`exhale_function_operators_8h_1a98dbdf8dc6fb128bfa483cab6d43cc91`
 
 - :ref:`exhale_function_operators_8h_1ad1ff11f569c8d29ae3832c0b9e0dc719`
 
@@ -118,13 +114,11 @@ Functions
 
 - :ref:`exhale_function_operators_8h_1aa318902d5c678365bc013f212f33e273`
 
+- :ref:`exhale_function_operators_8h_1aff3048762f56281070e3cde7c5a29584`
+
+- :ref:`exhale_function_operators_8h_1aecae867dd318cdb7a19b3ef8dc07d715`
+
 - :ref:`exhale_function_operators_8h_1a7ff3878224a6142df8832118e839c09a`
-
-- :ref:`exhale_function_operators_8h_1a81ad81cdb1b7942b48dbd8afd3fdb66f`
-
-- :ref:`exhale_function_operators_8h_1a21cc8b1e6f6d571cf3773985d8b6174c`
-
-- :ref:`exhale_function_operators_8h_1ac00495ec9fcf7c092fe85df90a580646`
 
 - :ref:`exhale_function_operators_8h_1a6437cf04a4350286acfd59764b2ea029`
 
@@ -155,4 +149,10 @@ Functions
 - :ref:`exhale_function_operators_8h_1a9ef03f734a3b3335038fd240efbe714c`
 
 - :ref:`exhale_function_operators_8h_1af942add864fda72da1cccb191ebda86d`
+
+- :ref:`exhale_function_operators_8h_1a81ad81cdb1b7942b48dbd8afd3fdb66f`
+
+- :ref:`exhale_function_operators_8h_1a21cc8b1e6f6d571cf3773985d8b6174c`
+
+- :ref:`exhale_function_operators_8h_1ac00495ec9fcf7c092fe85df90a580646`
 
