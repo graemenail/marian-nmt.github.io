@@ -73,7 +73,22 @@ jobs:
       - name: Install CUDA
         run: ./scripts/ci/install_cuda_ubuntu.sh ${{ env.cuda }}
 
+      - name: Get SHA
+        id: version
+        run: |
+          echo "::set-output name=sha::$(git rev-parse @:marian-dev)"
+
+      - name: Set up cache for marian binaries
+        uses: actions/cache@v2
+        id: cache
+        with:
+          path: |
+            marian-dev/build/marian
+            marian-dev/build/marian-*
+          key: ${{ runner.os }}-${{ steps.version.outputs.sha }}
+
       - name: Configure CMake
+        if: steps.cache.outputs.cache-hit != 'true'
         run: |
           mkdir build && cd build
           CC=/usr/bin/gcc-${{ env.gcc }} \
@@ -90,15 +105,6 @@ jobs:
             -DUSE_FBGEMM=ON \
             -DUSE_SENTENCEPIECE=ON \
             -DUSE_STATIC_LIBS=OFF
-
-      - name: Set up cache for marian binaries
-        uses: actions/cache@v2
-        id: cache
-        with:
-          path: |
-            marian-dev/build/marian
-            marian-dev/build/marian-*
-          key: ${{ runner.os }}-${{ hashFiles('marian-dev') }}
 
       - name: Compile
         if: steps.cache.outputs.cache-hit != 'true'
