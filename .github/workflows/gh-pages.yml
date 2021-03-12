@@ -112,7 +112,7 @@ jobs:
         run: make -j2
 
       - name: Get Version and Help
-        working-directory:
+        working-directory: .
         env:
           marian: 'marian-dev/build'
           doc: 'docs/cmd'
@@ -120,12 +120,12 @@ jobs:
           pwd
           for cmd in marian marian-{decoder,server,scorer,vocab,conv}; do
             output="${{ env.doc }}/${cmd}.md"
-            sed "s/<COMMAND>/${cmd}/" ${{ env.doc }}/_template.tmp > ${output}.md
-            echo "Version: " >> ${output}.md
-            ${{ env.marian }}/${cmd} --version >> ${output}.md 2>&1
-            echo "" >> ${output}.md
-            ${{ env.marian }}/${cmd} --help 2>&1 | bash _scripts/help2markdown.sh | python _scripts/wrap_help.py >> ${output}.md
-            echo ${output}.md && cat ${output}.md;
+            sed "s/<COMMAND>/${cmd}/" ${{ env.doc }}/_template.tmp > ${output}
+            echo "Version: " >> ${output}
+            ${{ env.marian }}/${cmd} --version >> ${output} 2>&1
+            echo "" >> ${output}
+            ${{ env.marian }}/${cmd} --help 2>&1 | bash _scripts/help2markdown.sh | python _scripts/wrap_help.py >> ${output}
+            echo ${output} && cat ${output};
           done
 
           du ${{ env.doc }}
