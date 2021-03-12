@@ -77,9 +77,9 @@ Functions
 
 - :ref:`exhale_function_tensor__operators_8h_1a91dd91b8579831067b74ff4664428c92`
 
-- :ref:`exhale_function_cpu_2element_8h_1a1c580f79de457c353e7494e46549c7b8`
-
 - :ref:`exhale_function_cpu_2element_8h_1a080e86bf2e1f219b6c5ef2df0cbd83b8`
+
+- :ref:`exhale_function_cpu_2element_8h_1a1c580f79de457c353e7494e46549c7b8`
 
 - :ref:`exhale_function_cpu_2element_8h_1a05dab2b96214f64e0b1d0180f8580f30`
 
@@ -117,9 +117,9 @@ Functions
 
 - :ref:`exhale_function_tensor__operators_8cpp_1ad2ab5760fe3a0177934976ef3a30fe09`
 
-- :ref:`exhale_function_tensor__operators_8cpp_1a6bc5c20ee06f8d3bddc70f019f27d278`
-
 - :ref:`exhale_function_tensor__operators_8h_1a2ea1e7c1161e5b8960408af33cc7752b`
+
+- :ref:`exhale_function_tensor__operators_8cpp_1a6bc5c20ee06f8d3bddc70f019f27d278`
 
 - :ref:`exhale_function_tensor__operators_8cpp_1a0926ff4aad8dd7b60dc155dc79b228cd`
 
