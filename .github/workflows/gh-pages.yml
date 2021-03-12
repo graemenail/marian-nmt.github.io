@@ -76,7 +76,7 @@ jobs:
       - name: Get SHA
         id: version
         run: |
-          echo "::set-output name=sha::$(git rev-parse @:marian-dev)"
+          echo "::set-output name=sha::$(git rev-parse HEAD)"
 
       - name: Set up cache for marian binaries
         uses: actions/cache@v2
