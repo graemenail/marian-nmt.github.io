@@ -121,6 +121,9 @@ jobs:
             ${{ env.marian }}/${cmd} --help 2>&1 | bash _scripts/help2markdown.sh | python _scripts/wrap_help.py >> ${output}.md
           done
 
+          du ${{ env.doc }}
+
+
       - name: Test Update
         working-directory: .
         run: |
@@ -131,7 +134,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: cli-output
-          path: marian-dev/build/cli
+          path: docs/cmd/marian*.md
           retention-days: 5
 
   # ------------------------------------------------------------------
@@ -241,7 +244,7 @@ jobs:
   deploy:
     name: Deploy to live branch
     needs: [site, api, cli]
-    if: ${{ false }} && ${{ !failure() }}  # skipped needs are fine, but failures are not
+    if: ${{ !failure() }}  # skipped needs are fine, but failures are not
     runs-on: ubuntu-latest
     steps:
       - name: Download Jekyll
@@ -261,7 +264,7 @@ jobs:
       - name: Combine API
         if: needs.api.result == 'success'  #
         run:
-          rsync -avh --delete api/ jekyll/docs/docs
+          rsync -avh --size-only --delete api/ jekyll/docs/docs
 
       # Use Current API
       - name: Reuse current API documentation
@@ -274,7 +277,7 @@ jobs:
       - name: Combine
         if: needs.api.result == 'skipped'
         run:
-          rsync -avh --delete api/docs/docs/ jekyll/docs/docs
+          rsync -avh --size-only --delete api/docs/docs/ jekyll/docs/docs
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
