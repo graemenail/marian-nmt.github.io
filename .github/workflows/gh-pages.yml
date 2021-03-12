@@ -129,6 +129,7 @@ jobs:
           done
 
           du ${{ env.doc }}
+          ls -valpsh ${{ env.doc }}
 
 
       - name: Test Update
