@@ -272,7 +272,7 @@ jobs:
       - name: Combine API
         if: needs.api.result == 'success'  #
         run:
-          rsync -avh --size-only --delete api/ jekyll/docs/docs
+          rsync -avh --size-only --delete api/ jekyll/docs/api
 
       # Use Current API
       - name: Reuse current API documentation
@@ -285,14 +285,14 @@ jobs:
       - name: Combine
         if: needs.api.result == 'skipped'
         run:
-          rsync -avh --size-only --delete api/docs/docs/ jekyll/docs/docs
+          rsync -avh --size-only --delete api/docs/api/ jekyll/docs/api
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./jekyll
-          keep_files: true
+          keep_files: false
           publish_branch: ${{ env.deploy }}
           enable_jekyll: false # prevents GitHub running Jekyll
 
