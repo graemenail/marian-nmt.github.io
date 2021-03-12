@@ -69,7 +69,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update -y && \
-          sudo apt-get install -y ccache libboost-all-dev \
+          sudo apt-get install -y libboost-all-dev \
             libgoogle-perftools-dev  libprotobuf-dev protobuf-compiler
           ccache -p
 
@@ -84,7 +84,6 @@ jobs:
           CUDAHOSTCXX=/usr/bin/g++-${{ env.gcc }} \
           cmake .. \
             -DCMAKE_BUILD_TYPE=Release \
-            -DUSE_CCACHE=ON \
             -DCOMPILE_CPU=ON \
             -DCOMPILE_CUDA=ON \
             -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-11.2/ \
@@ -95,44 +94,40 @@ jobs:
             -DUSE_SENTENCEPIECE=ON \
             -DUSE_STATIC_LIBS=OFF
 
-      - name: Set up cache for ccache
+      - name: Set up cache for marian binaries
         uses: actions/cache@v2
+        id: cache
         with:
-          path: ~/.ccache
-          key: ${{ runner.os }}-ccache-${{ hashFiles('marian-dev') }}
-          restore-keys: |
-            ${{ runner.os }}-ccache-
+          path: |
+            marian-dev/build/marian
+            marian-dev/build/marian-*
+          key: ${{ runner.os }}-${{ hashFiles('marian-dev') }}
 
       - name: Compile
-        if: ${{ false }}
+        if: steps.cache.outputs.cache-hit != 'true'
         working-directory: marian-dev/build
-        run: |
-          ccache -z
-          make -j2
-          ccache -s
+        run: make -j2
 
-      - name: Get Version
-        if: ${{ false }}
-        working-directory: marian-dev/build
+      - name: Get Version and Help
+        working-directory:
+        env:
+          marian: 'marian-dev/build'
+          doc: 'docs/cmd'
         run: |
-          mkdir -p cli
+          pwd
           for cmd in marian marian-{decoder,server,scorer,vocab,conv}; do
-            # ./${cmd} --version | tee cli/${cmd}.version
-            # ./${cmd} --help | tee cli/${cmd}.md
-
-          	sed "s/<COMMAND>/${cmd}/" _template.tmp > ${cmd}.md
-          	echo "Version: " >> ${cmd}.md
-          	./${cmd} --version >> ${cmd}.md 2>&1
-          	echo "" >> ${cmd}.md
-          	./${cmd} --help 2>&1 | bash _scripts/help2markdown.sh | python _scripts/wrap_help.py >> ${cmd}.md
+            output="${{ env.doc }}/${cmd}.md"
+            sed "s/<COMMAND>/${cmd}/" ${{ env.doc }}/_template.tmp > ${output}.md
+            echo "Version: " >> ${output}.md
+            ${{ env.marian }}/${cmd} --version >> ${output}.md 2>&1
+            echo "" >> ${output}.md
+            ${{ env.marian }}/${cmd} --help 2>&1 | bash _scripts/help2markdown.sh | python _scripts/wrap_help.py >> ${output}.md
           done
 
       - name: Test Update
-        working-directory: ${{ github.workspace }}
+        working-directory: .
         run: |
-          mkdir -p marian-dev/build/cli
-          cp -v ./docs/cmd/marian-conv.md marian-dev/build/cli
-          echo "I have changed" >> marian-dev/build/cli/marian-conv.md
+          git diff
 
 
       - name: Upload CLI
