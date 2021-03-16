@@ -697,13 +697,13 @@ Functions
 
 - :ref:`exhale_function_namespacemarian_1a4258896a6efeba02cdc20006bf020d98`
 
+- :ref:`exhale_function_namespacemarian_1ae0f4b4277e68547a57cc3d001e61051b`
+
 - :ref:`exhale_function_namespacemarian_1a10066c8d1e384ff2bddfa88f1b9e875d`
 
 - :ref:`exhale_function_namespacemarian_1ab893b095927312afe8bb9a190e9ec1a8`
 
 - :ref:`exhale_function_namespacemarian_1a853d24e55f53d1260af215cfea759d9d`
-
-- :ref:`exhale_function_namespacemarian_1ae0f4b4277e68547a57cc3d001e61051b`
 
 - :ref:`exhale_function_namespacemarian_1ac89dcc7abcd7900e297521cf16be0e62`
 
@@ -717,13 +717,13 @@ Functions
 
 - :ref:`exhale_function_namespacemarian_1a9dcde38124b2b5323d3a8f1164aa90f5`
 
-- :ref:`exhale_function_namespacemarian_1af778bcf1d71b7d165eef7c855681c49c`
-
 - :ref:`exhale_function_namespacemarian_1a71342682bc1986b67b5e9c9784d34e43`
 
 - :ref:`exhale_function_namespacemarian_1a5c0b04d4bc9ce43fa6c0fe9a58bf3019`
 
 - :ref:`exhale_function_namespacemarian_1aab7b90290ced90fb0684ef1d0bdb28a7`
+
+- :ref:`exhale_function_namespacemarian_1af778bcf1d71b7d165eef7c855681c49c`
 
 - :ref:`exhale_function_namespacemarian_1a386dd09855c15e3164606a77068448a7`
 
@@ -733,9 +733,9 @@ Functions
 
 - :ref:`exhale_function_namespacemarian_1ace855cd10b8dd9d3cdb4786453f167d1`
 
-- :ref:`exhale_function_namespacemarian_1abacf18d662853012a7ea06debef2243e`
-
 - :ref:`exhale_function_namespacemarian_1a99a97ec86003336577c1b90560f18518`
+
+- :ref:`exhale_function_namespacemarian_1abacf18d662853012a7ea06debef2243e`
 
 - :ref:`exhale_function_namespacemarian_1ac56efcc320a9506710575380c3b8a39d`
 
@@ -1033,9 +1033,9 @@ Functions
 
 - :ref:`exhale_function_group__graph__ops__arithmetic_1ga06c2e6bdcd86d1d0466591b05cc7c0d0`
 
-- :ref:`exhale_function_namespacemarian_1a370cbe3a84ff8744e247f12f36f792e9`
-
 - :ref:`exhale_function_namespacemarian_1aa730855b02efee30b16e4f72b1e28c7e`
+
+- :ref:`exhale_function_namespacemarian_1a370cbe3a84ff8744e247f12f36f792e9`
 
 - :ref:`exhale_function_namespacemarian_1ae7a97dd6a2fa149f6f71d436f8b8a997`
 
@@ -1121,9 +1121,9 @@ Functions
 
 - :ref:`exhale_function_namespacemarian_1adcd1ef3f450865be59b25b644209f2cd`
 
-- :ref:`exhale_function_group__graph__ops_1gaf1536ded3ee9ec65fafa013d7e554872`
-
 - :ref:`exhale_function_group__graph__ops_1ga94f868b4c8aecb496f398df9beb6f563`
+
+- :ref:`exhale_function_group__graph__ops_1gaf1536ded3ee9ec65fafa013d7e554872`
 
 - :ref:`exhale_function_namespacemarian_1af8771966e4d329d2756cfc82a5336bc0`
 
