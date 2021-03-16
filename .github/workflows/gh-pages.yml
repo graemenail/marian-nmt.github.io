@@ -115,7 +115,7 @@ jobs:
             ./${cmd} --help > ${cmd}.help 2>&1
           done
 
-      - name: Version Info data
+      - name: Generate current version data file
         working-directory: .
         env:
           marian: 'marian-dev/build'
@@ -126,20 +126,17 @@ jobs:
           cat <<EOF > _data/marian.yml
           version: ${version}
           version_full: ${version_full}
+          sha: ${{ steps.version.outputs.sha }}
           EOF
 
-          cat _data/marian.yml
-
-      - name: Upload Marian version data
+      - name: Upload current version data file
         uses: actions/upload-artifact@v2
         with:
           name: version
           path: _data/marian.yml
-          retention-days: 1
-
 
       # Create markdown output
-      - name: Process Version and Help
+      - name: Generate CLI markdown
         working-directory: .
         env:
           marian: 'marian-dev/build'
@@ -160,7 +157,6 @@ jobs:
         with:
           name: cli-output
           path: docs/cmd/marian*.md
-          retention-days: 5
 
   # Build website source
   site:
@@ -180,7 +176,7 @@ jobs:
         with:
           ruby-version: 2.7
 
-      # Incorporate CLI
+      # Incorporate version data file
       - name: Download version
         if: needs.cli.result == 'success'
         uses: actions/download-artifact@v2
@@ -188,31 +184,21 @@ jobs:
           name: version
           path: _data
 
-      - run: ls -valphs _data
-
       # Incorporate CLI
-      - name: Download new CLI
+      - name: Download CLI
         if: needs.cli.result == 'success'
         uses: actions/download-artifact@v2
         with:
           name: cli-output
           path: docs/cmd
 
-      # Could commit the markdown to Jekyll source?
-      # - name: Commit CLI
-      #   if: needs.cli.result == 'success'
-      #   working-directory: docs/cmd
-      #   run: |
-      #     git diff
-      #     git add *.md
-      #     git status
+      # TODO: could commit the output to Jekyll source as well?
 
       - name: Build Jekyll
         uses: limjh16/jekyll-action-ts@v2
         with:
           enable_cache: true
-          ## enable to test in a fork
-          custom_opts: '--baseurl /${{ github.event.repository.name }}'
+          custom_opts: '--baseurl /${{ github.event.repository.name }}'  # testing in a fork
 
       # This artifact contains the HTML output of Sphinx only.
       # With index.html at the root of the produced zip file.
@@ -305,6 +291,7 @@ jobs:
         run:
           rsync -avh --size-only --delete api/docs/api/ jekyll/docs/api
 
+      # Deploy to live branch
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
