@@ -115,6 +115,29 @@ jobs:
             ./${cmd} --help > ${cmd}.help 2>&1
           done
 
+      - name: Version Info data
+        working-directory: .
+        env:
+          marian: 'marian-dev/build'
+        run: |
+          version_full=$(cat ${{ env.marian }}/marian.version)
+          version=$(awk '{print substr($1,2)}' <<< ${version_full})
+
+          cat <<EOF > _data/marian.yml
+          version: ${version}
+          version_full: ${version_full}
+          EOF
+
+          cat _data/marian.yml
+
+      - name: Upload Marian version data
+        uses: actions/upload-artifact@v2
+        with:
+          name: version
+          path: _data/marian.yml
+          retention-days: 1
+
+
       # Create markdown output
       - name: Process Version and Help
         working-directory: .
@@ -156,6 +179,16 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7
+
+      # Incorporate CLI
+      - name: Download version
+        if: needs.cli.result == 'success'
+        uses: actions/download-artifact@v2
+        with:
+          name: version
+          path: _data
+
+      - run: ls -valphs _data
 
       # Incorporate CLI
       - name: Download new CLI
