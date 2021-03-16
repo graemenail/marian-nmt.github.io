@@ -117,10 +117,13 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         working-directory: marian-dev/build
         run: |
+          ls -valphs
+          echo $PWD
           for cmd in marian marian-{decoder,server,scorer,vocab,conv}; do
-            ${cmd} --version >> ${cmd}.version 2>&1
-            ${cmd} --help >> ${cmd}.help 2>&1
+            ./${cmd} --version >> ${cmd}.version 2>&1
+            ./${cmd} --help >> ${cmd}.help 2>&1
           done
+          ls -valphs
 
       - name: Process Version and Help
         working-directory: .
