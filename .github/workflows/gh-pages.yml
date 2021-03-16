@@ -263,7 +263,7 @@ jobs:
           path: jekyll
 
       # Use New API
-      - name: Download API
+      - name: Download new API documentation
         if: needs.api.result == 'success'  #
         uses: actions/download-artifact@v2
         with:
@@ -279,9 +279,9 @@ jobs:
           path: api
 
       # Combine
-      - name: Combine
+      - name: Add API docs to website
         run:
-          rsync -avh --size-only --delete api/docs/api jekyll/docs/api
+          rsync -avh --size-only --delete api/docs/api/ jekyll/docs/api
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
