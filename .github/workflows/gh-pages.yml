@@ -255,7 +255,6 @@ jobs:
         with:
           name: api-docs-output
           path: ./marian-dev/doc/build/html
-          retention-days: 5
 
 # Deploy to branch
   deploy:
