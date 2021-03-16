@@ -79,7 +79,7 @@ jobs:
           key: ${{ runner.os }}-${{ steps.version.outputs.sha }}
 
       - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
+        # if: steps.cache.outputs.cache-hit != 'true'
         run: |
           sudo apt-get update -y && \
           sudo apt-get install -y libboost-all-dev \
