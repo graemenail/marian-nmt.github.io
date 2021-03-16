@@ -15,14 +15,11 @@ env:
 
 
 jobs:
-  # ------------------------------------------------------------------
   # Check if marian submodule was updated
-  # ------------------------------------------------------------------
   check_source:
       name: Check for source changes
       outputs:
-        # changed: ${{ steps.check.outputs.changed }}
-        changed: true
+        changed: ${{ steps.check.outputs.changed }}
       runs-on: ubuntu-latest
       steps:
         - name: Checkout source code
@@ -42,18 +39,13 @@ jobs:
             fi
 
             # Always run on workflow_dispatch
-            # BUT IT SHOULD ONLY BE RUN ON SOURCE DIR!!
             if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
               echo '::set-output name=changed::true';
             fi
 
-  # ------------------------------------------------------------------
   # Compile Marian to get CLI options
-  # ------------------------------------------------------------------
   cli:
     name: Build CLI documentation
-    needs: [check_source]
-    # if: needs.check_source.outputs.changed == 'true'
     defaults:
       run:
         working-directory: marian-dev
@@ -64,12 +56,12 @@ jobs:
         with:
           submodules: true
 
-      - name: Get Marian SHA
+      - name: Get marian submodule SHA
         id: version
         run: |
           echo "::set-output name=sha::$(git rev-parse HEAD)"
 
-      - name: Set up cache for marian binaries
+      - name: Set up cache for marian output
         uses: actions/cache@v2
         id: cache
         with:
@@ -78,6 +70,7 @@ jobs:
             marian-dev/build/marian*.help
           key: v2-${{ runner.os }}-${{ steps.version.outputs.sha }}
 
+      # Only compile if the cache is expired
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: |
@@ -117,14 +110,12 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         working-directory: marian-dev/build
         run: |
-          ls -valphs
-          echo $PWD
           for cmd in marian marian-{decoder,server,scorer,vocab,conv}; do
-            ./${cmd} --version >> ${cmd}.version 2>&1
-            ./${cmd} --help >> ${cmd}.help 2>&1
+            ./${cmd} --version > ${cmd}.version 2>&1
+            ./${cmd} --help > ${cmd}.help 2>&1
           done
-          ls -valphs
 
+      # Create markdown output
       - name: Process Version and Help
         working-directory: .
         env:
@@ -138,15 +129,9 @@ jobs:
             cat ${{ env.marian }}/${cmd}.version >> ${output} 2>&1
             echo "" >> ${output}
             cat ${{ env.marian }}/${cmd}.help 2>&1 | bash _scripts/help2markdown.sh | python _scripts/wrap_help.py >> ${output}
-            echo ${output} && cat ${output};
           done
 
-      - name: Test Update
-        working-directory: .
-        run: |
-          git diff
-
-
+      # Generate artifact containing the markdown output for each marian command
       - name: Upload CLI
         uses: actions/upload-artifact@v2
         with:
@@ -154,9 +139,7 @@ jobs:
           path: docs/cmd/marian*.md
           retention-days: 5
 
-  # ------------------------------------------------------------------
   # Build website source
-  # ------------------------------------------------------------------
   site:
     name: Build website
     needs: [cli]
@@ -173,9 +156,8 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7
-# ------------------------------------------------
-# Incorporate CLI
-# ------------------------------------------------
+
+      # Incorporate CLI
       - name: Download new CLI
         if: needs.cli.result == 'success'
         uses: actions/download-artifact@v2
@@ -183,18 +165,20 @@ jobs:
           name: cli-output
           path: docs/cmd
 
-      - name: Commit CLI
-        if: needs.cli.result == 'success'
-        working-directory: docs/cmd
-        run: |
-          git diff
-          git add *.md
-          git status
-# ------------------------------------------------
+      # Could commit the markdown to Jekyll source?
+      # - name: Commit CLI
+      #   if: needs.cli.result == 'success'
+      #   working-directory: docs/cmd
+      #   run: |
+      #     git diff
+      #     git add *.md
+      #     git status
+
       - name: Build Jekyll
         uses: limjh16/jekyll-action-ts@v2
         with:
           enable_cache: true
+          ## enable to test in a fork
           custom_opts: '--baseurl /${{ github.event.repository.name }}'
 
       # This artifact contains the HTML output of Sphinx only.
@@ -206,9 +190,7 @@ jobs:
           path: ./_site
           retention-days: 5
 
-
-
-# Generates API docs
+  # Generates API docs
   api:
     name: Build API documentation
     needs: [check_source]
@@ -272,13 +254,13 @@ jobs:
 
       # Use New API
       - name: Download new API documentation
-        if: needs.api.result == 'success'  #
+        if: needs.api.result == 'success'
         uses: actions/download-artifact@v2
         with:
           name: api-docs-output
           path: api/docs/api
 
-      # Use Current API
+      # Fallback to use current live API
       - name: Reuse current API documentation
         if: needs.api.result == 'skipped'
         uses: actions/checkout@v2
@@ -299,27 +281,3 @@ jobs:
           keep_files: false
           publish_branch: ${{ env.deploy }}
           enable_jekyll: false # prevents GitHub running Jekyll
-
-
-
-      # - name: Install
-      #   uses: limjh16/jekyll-action-ts@v2
-      #   with:
-      #     enable_cache: true
-      #     custom_opts: '--baseurl /${{ github.event.repository.name }}'
-      #
-      # - name: Cache HTML
-      #   uses: actions/cache@v2
-      #   with:
-      #     path: ~/._site
-      #     key: jekyll
-      #   restore-keys: |
-      #     jekyll
-      #
-      # - name: Deploy
-      #   uses: peaceiris/actions-gh-pages@v3
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     publish_dir: ./_site
-      #     publish_branch: gh-pages
-      #     enable_jekyll: false # prevents GitHub running Jekyll
