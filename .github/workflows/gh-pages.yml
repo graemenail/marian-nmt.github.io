@@ -207,7 +207,6 @@ jobs:
         with:
           name: jekyll-output
           path: ./_site
-          retention-days: 5
 
   # Generates API docs
   api:
