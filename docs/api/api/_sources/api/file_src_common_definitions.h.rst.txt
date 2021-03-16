@@ -173,9 +173,9 @@ Functions
 
 - :ref:`exhale_function_namespacemarian_1a901fc558bea0cc90484653d1cf9e3183`
 
-- :ref:`exhale_function_namespacemarian_1a8b5635e6b01553e78bfab781201e5d12`
-
 - :ref:`exhale_function_namespacemarian_1af27077d144a9eaf77f526e4b538861ef`
+
+- :ref:`exhale_function_namespacemarian_1a8b5635e6b01553e78bfab781201e5d12`
 
 
 Defines
