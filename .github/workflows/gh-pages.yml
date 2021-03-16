@@ -74,19 +74,19 @@ jobs:
         id: cache
         with:
           path: |
-            marian-dev/build/marian
-            marian-dev/build/marian-*
-          key: ${{ runner.os }}-${{ steps.version.outputs.sha }}
+            marian-dev/build/marian*.version
+            marian-dev/build/marian*.help
+          key: v2-${{ runner.os }}-${{ steps.version.outputs.sha }}
 
       - name: Install dependencies
-        # if: steps.cache.outputs.cache-hit != 'true'
+        if: steps.cache.outputs.cache-hit != 'true'
         run: |
           sudo apt-get update -y && \
           sudo apt-get install -y libboost-all-dev \
             libgoogle-perftools-dev libprotobuf-dev protobuf-compiler
 
       - name: Install CUDA
-        # if: steps.cache.outputs.cache-hit != 'true'
+        if: steps.cache.outputs.cache-hit != 'true'
         run: ./scripts/ci/install_cuda_ubuntu.sh ${{ env.cuda }}
 
       - name: Configure CMake
@@ -113,6 +113,15 @@ jobs:
         working-directory: marian-dev/build
         run: make -j2
 
+      - name: Output Version and Help
+        if: steps.cache.outputs.cache-hit != 'true'
+        working-directory: marian-dev/build
+        run: |
+          for cmd in marian marian-{decoder,server,scorer,vocab,conv}; do
+            ${cmd} --version >> ${cmd}.version 2>&1
+            ${cmd} --help >> ${cmd}.help 2>&1
+          done
+
       - name: Process Version and Help
         working-directory: .
         env:
@@ -123,15 +132,11 @@ jobs:
             output="${{ env.doc }}/${cmd}.md"
             sed "s/<COMMAND>/${cmd}/" ${{ env.doc }}/_template.tmp > ${output}
             echo "Version: " >> ${output}
-            ${{ env.marian }}/${cmd} --version >> ${output} 2>&1
+            cat ${{ env.marian }}/${cmd}.version >> ${output} 2>&1
             echo "" >> ${output}
-            ${{ env.marian }}/${cmd} --help 2>&1 | bash _scripts/help2markdown.sh | python _scripts/wrap_help.py >> ${output}
+            cat ${{ env.marian }}/${cmd}.help 2>&1 | bash _scripts/help2markdown.sh | python _scripts/wrap_help.py >> ${output}
             echo ${output} && cat ${output};
           done
-
-          du ${{ env.doc }}
-          ls -valpsh ${{ env.doc }}
-
 
       - name: Test Update
         working-directory: .
