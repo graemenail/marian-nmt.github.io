@@ -238,11 +238,10 @@ jobs:
           path: ./marian-dev/doc/build/html
           retention-days: 5
 
-
 # Deploy to branch
   deploy:
     name: Deploy to live branch
-    needs: [site, api, cli]
+    needs: [site, api]
     if: ${{ !failure() }}  # skipped needs are fine, but failures are not
     runs-on: ubuntu-latest
     steps:
