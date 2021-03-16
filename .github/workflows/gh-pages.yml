@@ -280,7 +280,7 @@ jobs:
       # Combine
       - name: Combine
         run:
-          rsync -avh --size-only --delete api/docs/api/ jekyll/docs/api
+          rsync -avh --size-only --delete api/docs/api jekyll/docs/api
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
