@@ -15,10 +15,10 @@ its separate repository and is available from:
 [https://github.com/marian-nmt/amun](https://github.com/marian-nmt/amun)
 
 
-### Version 1.9.1
+### Version {{ site.data.marian.version }}
 
 Version:
-v1.9.1 95c65bb 2020-03-17 03:30:49 +0000
+{{ site.data.marian.version_full }}
 
 - [marian](docs/cmd/marian): training NMT models and language models.
 - [marian-decoder](docs/cmd/marian-decoder): CPU and GPU translation using NMT
