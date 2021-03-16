@@ -64,15 +64,6 @@ jobs:
         with:
           submodules: true
 
-      - name: Install dependencies
-        run: |
-          sudo apt-get update -y && \
-          sudo apt-get install -y libboost-all-dev \
-            libgoogle-perftools-dev libprotobuf-dev protobuf-compiler
-
-      - name: Install CUDA
-        run: ./scripts/ci/install_cuda_ubuntu.sh ${{ env.cuda }}
-
       - name: Get Marian SHA
         id: version
         run: |
@@ -86,6 +77,17 @@ jobs:
             marian-dev/build/marian
             marian-dev/build/marian-*
           key: ${{ runner.os }}-${{ steps.version.outputs.sha }}
+
+      - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          sudo apt-get update -y && \
+          sudo apt-get install -y libboost-all-dev \
+            libgoogle-perftools-dev libprotobuf-dev protobuf-compiler
+
+      - name: Install CUDA
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: ./scripts/ci/install_cuda_ubuntu.sh ${{ env.cuda }}
 
       - name: Configure CMake
         if: steps.cache.outputs.cache-hit != 'true'
