@@ -86,7 +86,7 @@ jobs:
             libgoogle-perftools-dev libprotobuf-dev protobuf-compiler
 
       - name: Install CUDA
-        if: steps.cache.outputs.cache-hit != 'true'
+        # if: steps.cache.outputs.cache-hit != 'true'
         run: ./scripts/ci/install_cuda_ubuntu.sh ${{ env.cuda }}
 
       - name: Configure CMake
@@ -113,13 +113,12 @@ jobs:
         working-directory: marian-dev/build
         run: make -j2
 
-      - name: Get Version and Help
+      - name: Process Version and Help
         working-directory: .
         env:
           marian: 'marian-dev/build'
           doc: 'docs/cmd'
         run: |
-          pwd
           for cmd in marian marian-{decoder,server,scorer,vocab,conv}; do
             output="${{ env.doc }}/${cmd}.md"
             sed "s/<COMMAND>/${cmd}/" ${{ env.doc }}/_template.tmp > ${output}
