@@ -1,0 +1,26 @@
+---
+layout: docs
+title: Command-line options for marian-vocab
+permalink: /docs/cmd/marian-vocab/
+icon: fa-file-code-o
+---
+
+## marian-vocab
+
+Version: 
+v1.10.6 bb92b81 2021-03-12 11:58:53 +0000
+
+Usage: `./marian-vocab [OPTIONS]`
+
+### Allowed options
+```
+-h,--help                             Print this help message and exit
+--version                             Print the version number and exit
+-m,--max-size UINT=0                  Generate only UINT most common vocabulary items
+```
+
+### Examples
+```
+./marian-vocab < text.src > vocab.yml
+cat text.src text.trg | ./marian-vocab > vocab.yml
+```
