@@ -7,11 +7,10 @@ on:
 
   workflow_dispatch:
 
+# Source and Deploy branch names
 env:
   source: content
   deploy: live
-  gcc: 7
-  cuda: "11.2"
 
 
 jobs:
@@ -46,6 +45,9 @@ jobs:
   # Compile Marian to get CLI options
   cli:
     name: Build CLI documentation
+    env:
+      gcc: 7
+      cuda: "11.2"
     defaults:
       run:
         working-directory: marian-dev
@@ -292,7 +294,7 @@ jobs:
       # Updates API documentation, deleting unknown files in destination
       - name: Add API docs to website
         run:
-          rsync -avh --size-only --delete api/docs/api/ jekyll/docs/api
+          rsync -avh --checksum --delete api/docs/api/ jekyll/docs/api
 
       # Deploy to live branch
       - name: Deploy
