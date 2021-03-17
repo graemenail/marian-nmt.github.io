@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - content
+    branches:
 
   workflow_dispatch:
 
