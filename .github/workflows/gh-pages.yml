@@ -166,6 +166,11 @@ jobs:
 
           cat _data/marian.yml
 
+
+      - name: Test Before
+        run: |
+          date -r docs/cmd/marian.md
+
       # Create markdown output
       - name: Generate CLI markdown
         working-directory: .
@@ -183,6 +188,10 @@ jobs:
           done
 
       # TODO: could commit the output to Jekyll source as well?
+
+      - name: Test After
+        run: |
+          date -r docs/cmd/marian.md
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
