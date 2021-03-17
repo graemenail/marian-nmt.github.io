@@ -193,7 +193,7 @@ jobs:
         run: |
           git config --global user.name '${{ github.actor }}'
           git config --global user.email '${{ github.actor }}@users.noreply.github.com'
-          git commit -m "Update CLI options" || true
+          git commit -m "Update CLI options: ${{ github.sha	}}" || true
 
       - name: Push commit
         if: ${{ github.event_name == 'push' }}
