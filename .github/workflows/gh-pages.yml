@@ -168,12 +168,13 @@ jobs:
       - name: Checkout website source
         uses: actions/checkout@v2
         with:
+          fetch-depth: 0  # required for mtime
           ref: ${{ env.source }}
           submodules: true
 
-      # Required for correct last-modified-at
-      - name: Restore timestamps
-        uses: chetan/git-restore-mtime-action@v1.0
+      # # Required for correct last-modified-at
+      # - name: Restore timestamps
+      #   uses: chetan/git-restore-mtime-action@v1.0
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
