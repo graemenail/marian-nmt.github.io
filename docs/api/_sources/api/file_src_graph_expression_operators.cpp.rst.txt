@@ -107,11 +107,11 @@ Functions
 
 - :ref:`exhale_function_group__graph__ops_1ga08ed3d72bd6922f1794250f178f967fb`
 
+- :ref:`exhale_function_group__graph__ops__cmp_1ga107bc63e0bfe3d4823b8b4d0ba91c413`
+
 - :ref:`exhale_function_group__graph__ops__cmp_1ga9840c89d81aaa0ba7ab80745808587c1`
 
 - :ref:`exhale_function_group__graph__ops__cmp_1gac41e52582bd5c32c66c57fffd6fbaf91`
-
-- :ref:`exhale_function_group__graph__ops__cmp_1ga107bc63e0bfe3d4823b8b4d0ba91c413`
 
 - :ref:`exhale_function_group__graph__ops__mathematical_1ga4d47fe908c56b6de5c71209339461321`
 
@@ -127,9 +127,9 @@ Functions
 
 - :ref:`exhale_function_group__graph__ops__cmp_1ga6a3648b889481efcd454d0ab15ac6588`
 
-- :ref:`exhale_function_group__graph__ops__activation_1ga361caa8e8fc620452ad9d57b5fef19ad`
-
 - :ref:`exhale_function_group__graph__ops__activation_1gad688784b99a7ad88cb808614dcd46760`
+
+- :ref:`exhale_function_group__graph__ops__activation_1ga361caa8e8fc620452ad9d57b5fef19ad`
 
 - :ref:`exhale_function_group__graph__ops__cmp_1gaa94225519d7ed355e847bfb6ce626b48`
 
@@ -137,9 +137,9 @@ Functions
 
 - :ref:`exhale_function_group__graph__ops__cmp_1gab359dcd0901c9e29d93a8548b29d09d1`
 
-- :ref:`exhale_function_group__graph__ops_1gabd89b8bb04fc7710c1c5e382740646c0`
-
 - :ref:`exhale_function_group__graph__ops_1ga94f04e4cab6c53cfcf5d0b85fe177c24`
+
+- :ref:`exhale_function_group__graph__ops_1gabd89b8bb04fc7710c1c5e382740646c0`
 
 - :ref:`exhale_function_group__graph__ops_1gadde699f22f8d4add0bd3aad995ed0383`
 
@@ -151,15 +151,15 @@ Functions
 
 - :ref:`exhale_function_group__graph__ops_1ga12f467ba3ef8263cd40c2bfc27e9effd`
 
+- :ref:`exhale_function_group__graph__ops__cmp_1ga9daf4bd671714273a7f84e075c2700c7`
+
 - :ref:`exhale_function_group__graph__ops__cmp_1ga3cadec94f28c90208347409178bc544d`
 
 - :ref:`exhale_function_group__graph__ops__cmp_1gabb3676f66feabc9e535ac1247334874d`
 
-- :ref:`exhale_function_group__graph__ops__cmp_1ga9daf4bd671714273a7f84e075c2700c7`
+- :ref:`exhale_function_group__graph__ops__activation_1ga7f39b829252ccb999f3af21c42108f75`
 
 - :ref:`exhale_function_group__graph__ops__activation_1ga754a3cfd940a40b2e6880956090891d4`
-
-- :ref:`exhale_function_group__graph__ops__activation_1ga7f39b829252ccb999f3af21c42108f75`
 
 - :ref:`exhale_function_group__graph__ops__mathematical_1ga0f3132fbaaaf9a5f2c1cbf6e3ad8f5f5`
 
@@ -169,11 +169,11 @@ Functions
 
 - :ref:`exhale_function_group__graph__ops_1ga858c5f759093938220f00226edd02247`
 
+- :ref:`exhale_function_group__graph__ops__cmp_1ga180aa98b74e982c6d87e96f0d2773f07`
+
 - :ref:`exhale_function_group__graph__ops__cmp_1ga17cdd4cc7c3fb4c937a6c835e808a61b`
 
 - :ref:`exhale_function_group__graph__ops__cmp_1ga7d27e013c78deda690e0a2986f6af290`
-
-- :ref:`exhale_function_group__graph__ops__cmp_1ga180aa98b74e982c6d87e96f0d2773f07`
 
 - :ref:`exhale_function_group__graph__ops__mathematical_1ga828452c93bee4b92f7aa2c53b7f78dde`
 
@@ -193,11 +193,11 @@ Functions
 
 - :ref:`exhale_function_group__graph__ops__mathematical_1ga8006a9dbffbb2c5d9a3e9fdc35f01c70`
 
+- :ref:`exhale_function_group__graph__ops__cmp_1gad6dc0116a6018a167b8f2989c5b1624d`
+
 - :ref:`exhale_function_group__graph__ops__cmp_1gace72a57133457133e60beed9438db6eb`
 
 - :ref:`exhale_function_group__graph__ops__cmp_1ga568ceebf155e0a24b3f9cd9a292623c2`
-
-- :ref:`exhale_function_group__graph__ops__cmp_1gad6dc0116a6018a167b8f2989c5b1624d`
 
 - :ref:`exhale_function_group__graph__ops__arithmetic_1ga6aaf9b9fe6f3717c4319e926330f2c22`
 
@@ -233,9 +233,9 @@ Functions
 
 - :ref:`exhale_function_group__graph__ops__mathematical_1ga496c8540bee48ca9d3d914f23ea299c0`
 
-- :ref:`exhale_function_group__graph__ops__activation_1ga0594af020fe0304dbcee0c041ffc4606`
-
 - :ref:`exhale_function_group__graph__ops__activation_1ga6228f7e46aeed337e3886df6446b7840`
+
+- :ref:`exhale_function_group__graph__ops__activation_1ga0594af020fe0304dbcee0c041ffc4606`
 
 - :ref:`exhale_function_group__graph__ops__manipulation_1ga04ca8ba70948e14a3583134b7aa6d033`
 
@@ -245,9 +245,9 @@ Functions
 
 - :ref:`exhale_function_group__graph__ops_1ga82f20c64c70cb5382c8b739c602f0b3b`
 
-- :ref:`exhale_function_group__graph__ops__activation_1gac5c1535b578f406693c44d1510a49015`
-
 - :ref:`exhale_function_group__graph__ops__activation_1ga04db6b8cee7d71439a7bc3dca0d0620e`
+
+- :ref:`exhale_function_group__graph__ops__activation_1gac5c1535b578f406693c44d1510a49015`
 
 - :ref:`exhale_function_group__graph__ops__mathematical_1ga2548565a400350763ae946f8e421c8a1`
 
@@ -273,9 +273,9 @@ Functions
 
 - :ref:`exhale_function_group__graph__ops__manipulation_1gaefbe924ba733a7b40b94aa17391ddda7`
 
-- :ref:`exhale_function_group__graph__ops__activation_1ga00bc56ca69e09f0b52d7c63230bd8640`
-
 - :ref:`exhale_function_group__graph__ops__activation_1ga93a88db6ed117a3fa1d47c3882fb49a7`
+
+- :ref:`exhale_function_group__graph__ops__activation_1ga00bc56ca69e09f0b52d7c63230bd8640`
 
 - :ref:`exhale_function_group__graph__ops__mathematical_1ga4e5f557e69a749794ddf12dd5feadea5`
 
