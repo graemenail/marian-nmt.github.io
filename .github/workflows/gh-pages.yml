@@ -125,10 +125,10 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: cli
-          path:
-            - marian-dev/build/marian*.version
-            - marian-dev/build/marian*.help
-            - marian-dev/build/marian.sha
+          path: |
+            marian-dev/build/marian*.version
+            marian-dev/build/marian*.help
+            marian-dev/build/marian.sha
 
       # - name: Generate current version data file
       #   working-directory: .
