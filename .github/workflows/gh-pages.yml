@@ -46,6 +46,8 @@ jobs:
               echo '::set-output name=changed::true';
             fi
 
+
+
   # Compile Marian to get CLI options
   cli:
     name: Build CLI documentation
@@ -191,6 +193,9 @@ jobs:
           git name-rev --name-only HEAD
           echo "${{ github.ref }}"
 
+      - name: Should commit here?
+        if: ${{ github.ref == 'refs/heads/${{ env.source }}'}}
+        run: echo 'yes'
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
