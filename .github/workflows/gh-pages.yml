@@ -4,7 +4,9 @@ on:
   push:
     branches:
       - content
+  pull_request:
     branches:
+      - content
 
   workflow_dispatch:
 
