@@ -130,54 +130,10 @@ jobs:
             marian-dev/build/marian*.help
             marian-dev/build/marian.sha
 
-      # - name: Generate current version data file
-      #   working-directory: .
-      #   env:
-      #     marian: 'marian-dev/build'
-      #   run: |
-      #     version_full=$(cat ${{ env.marian }}/marian.version)
-      #     version=$(awk '{print substr($1,2)}' <<< ${version_full})
-      #
-      #     cat <<EOF > _data/marian.yml
-      #     version: ${version}
-      #     version_full: ${version_full}
-      #     sha: ${{ steps.version.outputs.sha }}
-      #     EOF
-      #
-      # - name: Upload current version data file
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: version
-      #     path: _data/marian.yml
-      #
-      # # Create markdown output
-      # - name: Generate CLI markdown
-      #   working-directory: .
-      #   env:
-      #     marian: 'marian-dev/build'
-      #     doc: 'docs/cmd'
-      #   run: |
-      #     for cmd in marian marian-{decoder,server,scorer,vocab,conv}; do
-      #       output="${{ env.doc }}/${cmd}.md"
-      #       sed "s/<COMMAND>/${cmd}/" ${{ env.doc }}/_template.tmp > ${output}
-      #       echo "Version: " >> ${output}
-      #       cat ${{ env.marian }}/${cmd}.version >> ${output} 2>&1
-      #       echo "" >> ${output}
-      #       cat ${{ env.marian }}/${cmd}.help 2>&1 | bash _scripts/help2markdown.sh | python _scripts/wrap_help.py >> ${output}
-      #     done
-      #
-      # # Generate artifact containing the markdown output for each marian command
-      # - name: Upload CLI
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: cli-output
-      #     path: docs/cmd/marian*.md
-
   # Build website source
   site:
     name: Build website
     needs: [cli]
-    # if: ${{ !failure() }}  # skipped needs are fine, but failures are not
     runs-on: ubuntu-latest
     steps:
       - name: Checkout website source
@@ -186,10 +142,6 @@ jobs:
           fetch-depth: 0  # required for mtime
           ref: ${{ env.source }}
           submodules: true
-
-      # # Required for correct last-modified-at
-      # - name: Restore timestamps
-      #   uses: chetan/git-restore-mtime-action@v1.0
 
       - name: Download CLI files
         if: needs.cli.result == 'success'
@@ -229,22 +181,6 @@ jobs:
             echo "" >> ${output}
             cat ${{ env.cli }}/${cmd}.help 2>&1 | bash _scripts/help2markdown.sh | python _scripts/wrap_help.py >> ${output}
           done
-
-      # # Incorporate version data file
-      # - name: Download version
-      #   if: needs.cli.result == 'success'
-      #   uses: actions/download-artifact@v2
-      #   with:
-      #     name: version
-      #     path: _data
-      #
-      # # Incorporate CLI
-      # - name: Download CLI
-      #   if: needs.cli.result == 'success'
-      #   uses: actions/download-artifact@v2
-      #   with:
-      #     name: cli-output
-      #     path: docs/cmd
 
       # TODO: could commit the output to Jekyll source as well?
 
