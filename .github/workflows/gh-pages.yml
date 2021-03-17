@@ -196,7 +196,7 @@ jobs:
           git commit -m "Update CLI options" || true
 
       - name: Push commit
-        if: $ {{ github.event_name == 'push' }}
+        if: ${{ github.event_name == 'push' }}
         run: git push origin
 
       - name: Setup Ruby
