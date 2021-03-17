@@ -170,6 +170,7 @@ jobs:
       - name: Test Before
         run: |
           date -r docs/cmd/marian.md
+          date -r docs/cmd/index.md
 
       # Create markdown output
       - name: Generate CLI markdown
@@ -192,6 +193,7 @@ jobs:
       - name: Test After
         run: |
           date -r docs/cmd/marian.md
+          date -r docs/cmd/index.md
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
