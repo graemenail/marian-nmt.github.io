@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - content
+
   pull_request:
     branches:
       - content
@@ -154,6 +155,7 @@ jobs:
           name: cli
           path: ~/cli
 
+      # Create _data file with current marian version and sha
       - name: Generate data file
         env:
           cli: ${{steps.cli.outputs.download-path}}
@@ -166,8 +168,6 @@ jobs:
           version_full: ${version_full}
           sha: $(cat ${{ env.cli }}/marian.sha)
           EOF
-
-          cat _data/marian.yml
 
       # Create markdown output
       - name: Generate CLI markdown
@@ -183,9 +183,14 @@ jobs:
             cat ${{ env.cli }}/${cmd}.version >> ${output} 2>&1
             echo "" >> ${output}
             cat ${{ env.cli }}/${cmd}.help 2>&1 | bash _scripts/help2markdown.sh | python _scripts/wrap_help.py >> ${output}
+            git add ${output}
           done
 
-      # TODO: could commit the output to Jekyll source as well?
+      - name: Git test?
+        run: |
+          git name-rev --name-only HEAD
+          echo "${{ github.ref }}"
+
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
@@ -253,11 +258,11 @@ jobs:
           name: api-docs-output
           path: ./marian-dev/doc/build/html
 
-# Deploy to branch
+  # Deploy to branch
   deploy:
     name: Deploy to live branch
     needs: [site, api]
-    if: ${{ !failure() }}  # skipped needs are fine, but failures are not
+    if: ${{ !failure() && github.event_name == 'push' }}  # skipped needs are fine, but failures are not
     runs-on: ubuntu-latest
     steps:
       - name: Download Jekyll
