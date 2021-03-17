@@ -284,7 +284,7 @@ jobs:
           ref: ${{ env.deploy }}
           path: api
 
-      # Combine
+      # Updates API documentation, deleting unknown files in destination
       - name: Add API docs to website
         run:
           rsync -avh --size-only --delete api/docs/api/ jekyll/docs/api
