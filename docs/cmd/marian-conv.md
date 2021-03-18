@@ -7,8 +7,8 @@ icon: fa-file-code-o
 
 ## marian-conv
 
-Version:
-NO
+Version: 
+v1.10.6 bb92b81 2021-03-12 11:58:53 +0000
 
 Usage: `./marian-conv [OPTIONS]`
 
@@ -18,11 +18,11 @@ Usage: `./marian-conv [OPTIONS]`
 --version                             Print the version number and exit
 -f,--from TEXT=model.npz              Input model
 -t,--to TEXT=model.bin                Output model
---export-as TEXT=marian-bin           Kind of conversion: marian-bin or
+--export-as TEXT=marian-bin           Kind of conversion: marian-bin or 
                                       onnx-{encode,decoder-step,decoder-init,decoder-stop}
--g,--gemm-type TEXT=float32           GEMM Type to be used: float32, packed16, packed8avx2,
-                                      packed8avx512, intgemm8, intgemm8ssse3, intgemm8avx2,
-                                      intgemm8avx512, intgemm16, intgemm16sse2, intgemm16avx2,
+-g,--gemm-type TEXT=float32           GEMM Type to be used: float32, packed16, packed8avx2, 
+                                      packed8avx512, intgemm8, intgemm8ssse3, intgemm8avx2, 
+                                      intgemm8avx512, intgemm16, intgemm16sse2, intgemm16avx2, 
                                       intgemm16avx512
 -V,--vocabs VECTOR ...                Vocabulary file, required for ONNX export
 ```
