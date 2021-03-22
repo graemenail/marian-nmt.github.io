@@ -187,7 +187,7 @@ jobs:
             echo "Version: " >> ${output}
             cat ${{ env.cli }}/${cmd}.version >> ${output} 2>&1
             echo "" >> ${output}
-            cat ${{ env.cli }}/${cmd}.help 2>&1 | bash _scripts/help2markdown.sh | python _scripts/wrap_help.py >> ${output}
+            cat ${{ env.cli }}/${cmd}.help | bash _scripts/help2markdown.sh | python _scripts/wrap_help.py >> ${output}
             git add ${output}
           done
 
