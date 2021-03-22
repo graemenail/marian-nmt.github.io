@@ -5,7 +5,7 @@ MARIAN   = marian-dev/build
 COMMANDS = marian marian-decoder marian-server marian-scorer marian-vocab marian-conv
 CMDFILES = $(patsubst %,docs/cmd/%.md,$(COMMANDS))
 
-.PHONY: build clean update-gems update-cmds update-docs install run zip Gamefile.lock
+.PHONY: build clean update-gems update-cmds update-datafile install run zip Gamefile.lock
 
 
 all: run
@@ -28,7 +28,8 @@ marian-nmt-website.tgz: build
 	tar zcf $@ _site
 
 # Generate pages with command-line options
-update-cmds: $(MARIAN) $(CMDFILES) _data/marian.yml $(MARIAN)/marian.sha
+update-cmds: $(CMDFILES)
+update-datafile: _data/marian.yml
 
 # Generate Marian version YAML
 _data/marian.yml: $(MARIAN)/marian.version $(MARIAN)/marian.sha
