@@ -58,7 +58,7 @@ docs/cmd/%.md: docs/cmd/_template.tmp $(MARIAN)/%.version $(MARIAN)/%.help
 
 # Compile Marian
 marian-dev/build: marian-dev
-	mkdir -p marian-dev/build && cd marian-dev/build && cmake .. && make -j8
+	mkdir -p marian-dev/build && cd marian-dev/build && cmake .. -DCOMPILE_SERVER=ON && make -j8
 
 # Init submodule
 marian-dev:
