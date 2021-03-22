@@ -2,13 +2,12 @@
 
 The website is build with Jekyll - a static site generator.
 The content is created and updated on branch `jekyll`, then the static pages
-are generated with Jekyll and stored in branch `master`. Please **do not update
-files directly in `master`**.
+are generated with Jekyll via a GitHub action and stored in the branch `master`.
 
+Please **do not update files directly in `master`**.
 
 We use custom theme, which is not supported by automatic GitHub Pages
 generator. The static files have to be generated locally before deploying.
-
 
 ## Local build
 
@@ -39,11 +38,9 @@ The website should be available at `http://127.0.0.1:4000`.
 
 ### Documentation
 
-Documentation has to be updated manually:
-
-    make update-docs
-
-This requires `doxygen` to be installed.
+API documentation can be found inside `marian-dev/docs`. See
+[here](https://github.com/marian-nmt/marian-dev/blob/master/doc/README.md) for
+instructions on how to build this.
 
 ### Pages with command-line options
 
@@ -54,6 +51,11 @@ Pages with command-line options for Marian tools have to be updated manually:
 
 This compiles Marian, so GPU is required.
 
+The Jekyll data file containing versioning information for Marian is built via
+
+    make -B update-datafile
+
+
 ### Logos
 
 Put a logo image into `assets/logos/` and update `_data/logos.yml`.  Use a PNG
@@ -62,17 +64,8 @@ image with transparent background.
 
 ## Deployment
 
-To update the content of website it should be enough to edit the relevant
-markdown files.
-When all updates have been made and the website can be still generated locally
-*without errors*, you can commit and deploy your changes by running:
-
-    bash -v ./commit-and-deploy.sh
-
-The script commit all changes for you with default commit message, but it is
-always better to commit changes on your own beforehand and set a relevant
-message.
-
+Please test locally, and open a PR. A GitHub action will build your request and
+provide a downloadable output to check.
 
 ## Tag reference
 
